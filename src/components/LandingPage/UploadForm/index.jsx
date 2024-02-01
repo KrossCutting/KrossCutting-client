@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { IoIosAddCircle, IoIosCloseCircle } from "react-icons/io";
-import useUrlStore from "../../store";
-import API from "../../../config";
+
+import useUrlStore from "../../../store";
+import API from "../../../../config";
 
 function UploadForm() {
   const [clicked, setClicked] = useState(false);
