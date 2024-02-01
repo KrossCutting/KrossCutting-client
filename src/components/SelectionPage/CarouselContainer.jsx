@@ -26,7 +26,7 @@ function CarouselContainer() {
           onClick={handleLeftClick}
         />
         <div className="w-720 h-405 space-y-30">
-          {/* TODO_바다오 컴포넌트로 변경 필요 */}
+          {/* TODO_비디오 플레이어 컴포넌트로 변경 필요 */}
           <video
             key={urlVideoList[currentIndex]}
             className="rounded-md"
@@ -36,7 +36,7 @@ function CarouselContainer() {
           >
             <source src={urlVideoList[currentIndex]} type="video/mp4" />
           </video>
-          {/* TODO_오디오 컴포넌트 포함 필요 */}
+          {/* TODO_오디오 플레이어 컴포넌트 포함 필요 */}
         </div>
         <FaCircleChevronRight
           size={40}
