@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
 
 import IntroBox from "../IntroBox";
-import Loading from "../../Loading";
 import UploadForm from "../UploadForm";
 import SampleVideo from "../SampleVIdeo";
+import Loading from "../../shared/Loading";
 import WhiteLogo from "../../shared/WhiteLogo";
 import VideoBackground from "../../shared/VideoBackground";
 
 function MainPage() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // To Do 추후 서버 다운로드 구현 로직 완성시 데이터 송신 시 Loading 컴포넌트 언마운트
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
   }, [isLoading]);
 
   return (
