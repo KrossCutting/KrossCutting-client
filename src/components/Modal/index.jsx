@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function Modal({ children }) {
@@ -12,5 +13,9 @@ function Modal({ children }) {
     </div>
   );
 }
+
+Modal.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export default Modal;
