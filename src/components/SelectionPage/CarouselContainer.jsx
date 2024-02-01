@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
-import useUrlStore from "../../store/store";
+import useUrlStore from "../../store";
 
 function CarouselContainer() {
   const { videoUrls } = useUrlStore();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const urlVideoList = Object.values(videoUrls);
+  const CAROUSEL_ICON_SIZE = 40;
 
   function handleLeftClick() {
     setCurrentIndex((prev) => prev - 1);
@@ -21,7 +22,7 @@ function CarouselContainer() {
     <main className="flex flex-col items-center justify-center w-full h-full">
       <section className="flex items-center space-x-30">
         <FaCircleChevronLeft
-          size={40}
+          size={CAROUSEL_ICON_SIZE}
           className={`fill-white ${currentIndex === 0 ? "invisible" : null} cursor-pointer`}
           onClick={handleLeftClick}
         />
@@ -39,7 +40,7 @@ function CarouselContainer() {
           {/* TODO_오디오 플레이어 컴포넌트 포함 필요 */}
         </div>
         <FaCircleChevronRight
-          size={40}
+          size={CAROUSEL_ICON_SIZE}
           className={`fill-white ${currentIndex === 2 ? "invisible" : null} cursor-pointer`}
           onClick={handleRightClick}
         />
