@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
-import useUrlStore from "../../store";
+import useUrlStore from "../../../store";
+import SelectionPage from "../SelectionPage";
 
 function CarouselContainer() {
-  const { videoUrls } = useUrlStore();
+  const { videoUrls, audioUrls } = useUrlStore();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const urlVideoList = Object.values(videoUrls);
+  // TO DO: store 수정 필요
+  const videoUrlList = Object.values(videoUrls);
+  const audioUrlList = Object.values(audioUrls);
+
   const CAROUSEL_ICON_SIZE = 40;
 
   function handleLeftClick() {
@@ -26,19 +30,11 @@ function CarouselContainer() {
           className={`fill-white ${currentIndex === 0 ? "invisible" : null} cursor-pointer`}
           onClick={handleLeftClick}
         />
-        <div className="w-720 h-405 space-y-30">
-          {/* TODO_비디오 플레이어 컴포넌트로 변경 필요 */}
-          <video
-            key={urlVideoList[currentIndex]}
-            className="rounded-md"
-            autoPlay
-            muted
-            loop
-          >
-            <source src={urlVideoList[currentIndex]} type="video/mp4" />
-          </video>
-          {/* TODO_오디오 플레이어 컴포넌트 포함 필요 */}
-        </div>
+        <SelectionPage
+          isMain={currentIndex === 0}
+          selectedVideoUrl={videoUrlList[currentIndex]}
+          selectedAudioUrl={audioUrlList[currentIndex]}
+        />
         <FaCircleChevronRight
           size={CAROUSEL_ICON_SIZE}
           className={`fill-white ${currentIndex === 2 ? "invisible" : null} cursor-pointer`}
