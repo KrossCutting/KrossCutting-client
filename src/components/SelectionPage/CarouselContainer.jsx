@@ -5,9 +5,9 @@ import useUrlStore from "../../store/store";
 
 function CarouselContainer() {
   const { videoUrls } = useUrlStore();
-  const urlVideoList = Object.values(videoUrls);
-
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const urlVideoList = Object.values(videoUrls);
 
   function handleLeftClick() {
     setCurrentIndex((prev) => prev - 1);
