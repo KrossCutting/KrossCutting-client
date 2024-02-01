@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function Modal({ children }) {
   return (
-    <div>
-      <Link to="..">
-        <div className="top-0 left-0 w-screen h-screen"></div>
+    <div className="fixed inset-0 flex items-center justify-center">
+      <Link to={-1}>
+        <div className="fixed inset-0 bg-black opacity-25"></div>
       </Link>
-      <div className="max-w-full overflow-y-auto transform -translate-x-1/2 -translate-y-1/2 rounded-lg ixed top-1/2 left-1/2 w-80 md:w-full max-h-90vh">
+      <div className="fixed flex justify-center max-w-full overflow-y-auto transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-80 md:w-full max-h-90vh">
         {children}
       </div>
     </div>
