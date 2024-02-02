@@ -54,31 +54,31 @@ function UploadForm() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center text-white">
+    <main className="flex flex-col items-center justify-center">
       <div className="w-400 h-300 bg-[rgba(255,255,255,0.1)] rounded-lg">
         <form className="flex flex-col items-center justify-center w-full h-full space-y-15">
           <div className="flex flex-col justify-center w-300 h-70">
-            <span>Main video</span>
+            <span className="text-white">Main video</span>
             <input
               name="mainVideo"
               type="text"
-              className="rounded"
+              className="px-10 mb-10 text-black rounded"
               onChange={handleChange}
             />
           </div>
           <div className="flex flex-col h-auto w-300">
-            <span>Sub videos</span>
+            <span className="text-white">Sub videos</span>
             <input
               name="firstSubVideo"
               type="text"
-              className="mb-10 rounded"
+              className="px-10 mb-10 text-black rounded"
               onChange={handleChange}
             />
             {clicked && (
               <input
                 name="lastSubVideo"
                 type="text"
-                className="rounded"
+                className="px-10 mb-10 text-black rounded"
                 onChange={handleChange}
               />
             )}

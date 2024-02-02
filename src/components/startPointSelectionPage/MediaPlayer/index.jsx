@@ -29,7 +29,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       url: audioSrc,
     });
 
-    const handleAudioTime = () => {
+    function handleAudioTime() {
       if (!Number.isFinite(videoRef.current.duration)) {
         return;
       }
@@ -41,7 +41,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       const runtime = videoRef.current.currentTime / videoRef.current.duration;
 
       waveSurferElem.seekTo(runtime);
-    };
+    }
 
     videoRef.current.addEventListener("timeupdate", handleAudioTime);
 
@@ -51,7 +51,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     };
   }, [audioSrc, videoSrc, videoRef, waveSurferRef]);
 
-  const handleStartPointSelectButton = () => {
+  function handleStartPointSelectButton() {
     const userSelectPoint = videoRef.current.currentTime;
 
     if (!Number.isNaN(userSelectPoint)) {
@@ -67,7 +67,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
         setStartPoints({ ...startPoints, lastSubStartPoint: userSelectPoint });
       }
     }
-  };
+  }
 
   const isAllSelected =
     videoUrlList.filter((url) => url !== "").length ===

@@ -13,13 +13,13 @@ function CarouselContainer() {
 
   const CAROUSEL_ICON_SIZE = 40;
 
-  const handleLeftClick = () => {
+  function handleLeftClick() {
     setCurrentIndex((prev) => prev - 1);
-  };
+  }
 
-  const handleRightClick = () => {
+  function handleRightClick() {
     setCurrentIndex((prev) => prev + 1);
-  };
+  }
 
   return (
     <div className="box-border flex flex-col w-screen h-screen bg-[rgba(0,0,0)]">
