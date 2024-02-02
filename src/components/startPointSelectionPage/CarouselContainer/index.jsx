@@ -5,22 +5,21 @@ import useUrlStore from "../../../store";
 import SelectionContainer from "../SelectionContainer";
 
 function CarouselContainer() {
-  const { videoUrls, audioUrls } = useUrlStore();
+  const { videoUrls, audioUrls } = useUrlStore((state) => state);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // TO DO: store 수정 필요
   const videoUrlList = Object.values(videoUrls);
   const audioUrlList = Object.values(audioUrls);
 
   const CAROUSEL_ICON_SIZE = 40;
 
-  function handleLeftClick() {
+  const handleLeftClick = () => {
     setCurrentIndex((prev) => prev - 1);
-  }
+  };
 
-  function handleRightClick() {
+  const handleRightClick = () => {
     setCurrentIndex((prev) => prev + 1);
-  }
+  };
 
   return (
     <div className="box-border flex flex-col w-screen h-screen bg-[rgba(0,0,0)]">
@@ -32,9 +31,9 @@ function CarouselContainer() {
             onClick={handleLeftClick}
           />
           <SelectionContainer
-            isMainMedia={currentIndex === 0}
-            selectedVideoUrl={videoUrlList[currentIndex]}
-            selectedAudioUrl={audioUrlList[currentIndex]}
+            videoUrlList={videoUrlList}
+            audioUrlList={audioUrlList}
+            currentIndex={currentIndex}
           />
           <FaCircleChevronRight
             size={CAROUSEL_ICON_SIZE}

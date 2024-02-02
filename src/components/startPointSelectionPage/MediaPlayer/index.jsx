@@ -2,9 +2,19 @@ import { useEffect, useRef } from "react";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugins/timeline.esm";
 
-function MediaPlayer({ videoSrc, audioSrc }) {
+import useUrlStore from "../../../store";
+
+import StartPointSelectButton from "../StartPointSelectButton";
+import StartPointSubmitButton from "../StartPointSubmitButton";
+
+function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
   const waveSurferRef = useRef(null);
   const videoRef = useRef(null);
+  const [videoSrc, audioSrc] = [
+    videoUrlList[currentIndex],
+    audioUrlList[currentIndex],
+  ];
+  const { startPoints, setStartPoints } = useUrlStore((state) => state);
 
   useEffect(() => {
     const waveSurferElem = WaveSurfer.create({
@@ -41,24 +51,54 @@ function MediaPlayer({ videoSrc, audioSrc }) {
     };
   }, [audioSrc, videoSrc, videoRef, waveSurferRef]);
 
+  const handleStartPointSelectButton = () => {
+    const userSelectPoint = videoRef.current.currentTime;
+
+    if (!Number.isNaN(userSelectPoint)) {
+      if (currentIndex === 0) {
+        setStartPoints({ ...startPoints, mainStartPoint: userSelectPoint });
+      }
+
+      if (currentIndex === 1) {
+        setStartPoints({ ...startPoints, firstSubStartPoint: userSelectPoint });
+      }
+
+      if (currentIndex === 2) {
+        setStartPoints({ ...startPoints, lastSubStartPoint: userSelectPoint });
+      }
+    }
+  };
+
+  const isAllSelected =
+    videoUrlList.filter((url) => url !== "").length ===
+    Object.values(startPoints).filter((point) => point !== undefined).length;
+
   return (
-    <div className="w-full h-full">
-      <video
-        ref={videoRef}
-        src={videoSrc}
-        controls
-        className="w-720 h-405"
-        playsInline
-        type="video/mp4"
-      >
-        <track kind="captions"></track>
-      </video>
-      <div className="p-10 text-white" ref={waveSurferRef}></div>
-      <p className="p-10 font-bold text-center text-white capitalize">
-        please select start point of music. <br />
-        you can choose start point within 60 sec.
-      </p>
-    </div>
+    <>
+      <div className="w-full h-full">
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          controls
+          className="w-720 h-405"
+          playsInline
+          type="video/mp4"
+        >
+          <track kind="captions"></track>
+        </video>
+        <div className="p-10 text-white" ref={waveSurferRef}></div>
+        <p className="p-10 font-bold text-center text-white capitalize">
+          please select start point of music. <br />
+          you can choose start point within 60 sec.
+        </p>
+      </div>
+      <div className="flex flex-row justify-center gap-15">
+        <StartPointSelectButton
+          handleStartPoint={handleStartPointSelectButton}
+        />
+        {isAllSelected && <StartPointSubmitButton />}
+      </div>
+    </>
   );
 }
 
