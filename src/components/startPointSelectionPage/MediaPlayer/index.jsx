@@ -2,15 +2,18 @@ import { useEffect, useRef } from "react";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugins/timeline.esm";
 
-function Media({ videoSrc, audioSrc }) {
+function MediaPlayer({ videoSrc, audioSrc }) {
   const waveSurferRef = useRef(null);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const waveSurferElem = WaveSurfer.create({
       container: waveSurferRef.current,
+      height: 50,
       barWidth: 2,
       barGap: 1,
+      barHeight: 1,
+      cursorWidth: 1,
       interact: false,
       plugins: [TimelinePlugin.create()],
       url: audioSrc,
@@ -59,4 +62,4 @@ function Media({ videoSrc, audioSrc }) {
   );
 }
 
-export default Media;
+export default MediaPlayer;
