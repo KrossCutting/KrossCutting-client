@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugins/timeline.esm";
 
@@ -101,5 +102,11 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     </>
   );
 }
+
+MediaPlayer.propTypes = {
+  videoUrlList: PropTypes.instanceOf(Array).isRequired,
+  audioUrlList: PropTypes.instanceOf(Array).isRequired,
+  currentIndex: PropTypes.number.isRequired,
+};
 
 export default MediaPlayer;
