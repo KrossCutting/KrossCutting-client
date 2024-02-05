@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { FaCircleChevronLeft, FaCircleChevronRight } from "react-icons/fa6";
 
-import useUrlStore from "../../../store";
+import { Outlet } from "react-router-dom";
+import { useAwsUrlStore } from "../../../store";
 import SelectionContainer from "../SelectionContainer";
 
 function CarouselContainer() {
-  const { videoUrls, audioUrls } = useUrlStore((state) => state);
+  const { videoUrls, audioUrls } = useAwsUrlStore((state) => state);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const videoUrlList = Object.values(videoUrls);
@@ -42,6 +43,7 @@ function CarouselContainer() {
           />
         </section>
       </main>
+      <Outlet />
     </div>
   );
 }
