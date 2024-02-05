@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugins/timeline.esm";
 
-import useUrlStore from "../../../store";
+import { useStartPointStore } from "../../../store";
 
 import StartPointSelectButton from "../StartPointSelectButton";
 import StartPointSubmitButton from "../StartPointSubmitButton";
@@ -14,7 +14,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     videoUrlList[currentIndex],
     audioUrlList[currentIndex],
   ];
-  const { startPoints, setStartPoints } = useUrlStore((state) => state);
+  const { startPoints, setStartPoints } = useStartPointStore((state) => state);
 
   useEffect(() => {
     const waveSurferElem = WaveSurfer.create({
@@ -52,7 +52,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
   }, [audioSrc, videoSrc, videoRef, waveSurferRef]);
 
   function handleStartPointSelectButton() {
-    const userSelectPoint = videoRef.current.currentTime;
+    const userSelectPoint = Math.floor(videoRef.current.currentTime);
 
     if (!Number.isNaN(userSelectPoint)) {
       if (currentIndex === 0) {

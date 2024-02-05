@@ -4,49 +4,65 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoIosAddCircle, IoIosCloseCircle } from "react-icons/io";
 
-import useUrlStore from "../../../store";
+import Message from "../../Message";
 import API from "../../../../config";
+import Loading from "../../shared/Loading";
+import { useAwsUrlStore, useYouTubeUrlStore } from "../../../store";
+import { QUALITY_MESSAGE, PLAYTIME_ALERT } from "../../../constants/message";
 
 function UploadForm() {
-  const [clicked, setClicked] = useState(false);
-  const [videos, setVideos] = useState({
-    mainVideo: "",
-    firstSubVideo: "",
-    lastSubVideo: "",
-  });
-
-  const { setVideoUrls } = useUrlStore();
-
   const navigate = useNavigate();
+  const [isClicked, setIsClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [serverMessage, setServerMessage] = useState("");
+  const { setVideoUrls, setAudioUrls } = useAwsUrlStore();
+  const { youtubeUrls, setYoutubeUrls } = useYouTubeUrlStore((state) => state);
 
   function handleClick() {
-    setClicked((prevState) => !prevState);
+    setIsClicked((prevState) => !prevState);
   }
 
   function handleChange(event) {
     const { name, value } = event.target;
 
-    setVideos((prevUrls) => ({
-      ...prevUrls,
-      [name]: value,
-    }));
+    setYoutubeUrls({ ...youtubeUrls, [name]: value });
   }
 
-  async function handleSubmit(event) {
+  async function requestUrls(event) {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
-      const response = await axios.post(
-        API.VIDEOS,
-        { videoUrls: videos },
-        { withCredentials: true },
-      );
+      const response = await axios.post(API.CONTENTS, {
+        videoUrls: youtubeUrls,
+        isPermitted: false,
+      });
 
-      if (response.message === "success" && response.urlList) {
-        setVideoUrls(response.urlList);
+      const { result } = response.data;
 
-        // TODO: 시작점 셀렉션 페이지 개발 완료시 navigate(시작점 셀렉션 주소); 실행
-        // navigate(시작점 셀렉션 주소);
+      if (result === "success") {
+        const { mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl } =
+          response.data.videoUrlList;
+        const { mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl } =
+          response.data.audioUrlList;
+
+        setVideoUrls(mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl);
+        setAudioUrls(mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl);
+        setIsLoading(false);
+        navigate("/selection");
+
+        return;
+      }
+
+      const { message } = response.data;
+
+      if (message === "quality") {
+        setServerMessage(QUALITY_MESSAGE);
+        return;
+      }
+
+      if (message === "length") {
+        setServerMessage(PLAYTIME_ALERT);
       }
     } catch (err) {
       console.error(err);
@@ -60,7 +76,7 @@ function UploadForm() {
           <div className="flex flex-col justify-center w-300 h-70">
             <span className="text-white">Main video</span>
             <input
-              name="mainVideo"
+              name="mainVideoUrl"
               type="text"
               className="px-10 mb-10 text-black rounded"
               onChange={handleChange}
@@ -69,14 +85,14 @@ function UploadForm() {
           <div className="flex flex-col h-auto w-300">
             <span className="text-white">Sub videos</span>
             <input
-              name="firstSubVideo"
+              name="firstSubVideoUrl"
               type="text"
               className="px-10 mb-10 text-black rounded"
               onChange={handleChange}
             />
-            {clicked && (
+            {isClicked && (
               <input
-                name="lastSubVideo"
+                name="lastSubVideoUrl"
                 type="text"
                 className="px-10 mb-10 text-black rounded"
                 onChange={handleChange}
@@ -84,7 +100,7 @@ function UploadForm() {
             )}
           </div>
           <div className="flex items-center justify-center h-auto my-10 cursor-pointer">
-            {clicked ? (
+            {isClicked ? (
               <IoIosCloseCircle size={27} onClick={handleClick} />
             ) : (
               <IoIosAddCircle size={27} onClick={handleClick} />
@@ -93,7 +109,7 @@ function UploadForm() {
           <div className="flex items-center justify-center w-full">
             <button
               type="button"
-              onSubmit={handleSubmit}
+              onClick={requestUrls}
               className="my-5 font-bold text-black bg-white rounded-lg w-80 h-30 hover:bg-[#D305FF] hover:text-white"
             >
               Submit
@@ -101,6 +117,8 @@ function UploadForm() {
           </div>
         </form>
       </div>
+      {isLoading && <Loading />}
+      {serverMessage && <Message messageType={serverMessage} />}
     </main>
   );
 }
