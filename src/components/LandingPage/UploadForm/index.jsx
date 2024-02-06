@@ -46,9 +46,9 @@ function UploadForm() {
       const { result } = response.data;
 
       if (result === "success") {
-        const { mainVideoUrl, subOneVideoUrl, subTwoVideoUrl } =
+        const [mainVideoUrl, subOneVideoUrl, subTwoVideoUrl] =
           response.data.videoUrlList;
-        const { mainAudioUrl, subOneAudioUrl, subTwoAudioUrl } =
+        const [mainAudioUrl, subOneAudioUrl, subTwoAudioUrl] =
           response.data.audioUrlList;
 
         setVideoUrls(mainVideoUrl, subOneVideoUrl, subTwoVideoUrl);
