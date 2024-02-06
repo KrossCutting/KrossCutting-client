@@ -9,19 +9,21 @@ import Modal from "../shared/Modal";
 import Loading from "../shared/Loading";
 import { VERIFICATION_MESSAGE } from "../../constants/message";
 import {
-  useAwsUrlStore,
+  useAwsVideoStore,
+  useAwsAudioStore,
   useStartPointStore,
   useYouTubeUrlStore,
 } from "../../store";
 
 function Message({ messageType }) {
-  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const { startPoints } = useStartPointStore();
   const { youtubeUrls } = useYouTubeUrlStore();
-  const { setVideoUrls, setAudioUrls } = useAwsUrlStore();
+  const { setVideoUrls } = useAwsVideoStore();
+  const { setAudioUrls } = useAwsAudioStore();
 
-  async function handleProceed() {
+  async function handleProcessClick() {
     if (messageType === VERIFICATION_MESSAGE) {
       const response = await axios.post(API.COMPILATIONS, { startPoints });
       // To Do resopnse 받으면 영상 다운 받을 수 있게 처리
@@ -66,7 +68,7 @@ function Message({ messageType }) {
             </button>
             <button
               className="px-10 py-5 rounded-3xl bg-mint"
-              onClick={handleProceed}
+              onClick={handleProcessClick}
             >
               Yes, proceed
             </button>

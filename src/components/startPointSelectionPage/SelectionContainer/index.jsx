@@ -17,8 +17,8 @@ function SelectionContainer({ videoUrlList, audioUrlList, currentIndex }) {
 }
 
 SelectionContainer.propTypes = {
-  videoUrlList: PropTypes.instanceOf(Array).isRequired,
-  audioUrlList: PropTypes.instanceOf(Array).isRequired,
+  videoUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  audioUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentIndex: PropTypes.number.isRequired,
 };
 

@@ -1,17 +1,13 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
 
-const awsUrlStore = (set) => ({
+const awsVideoStore = (set) => ({
   videoUrls: {
     mainVideoUrl: "",
     subOneVideoUrl: "",
     subTwoVideoUrl: "",
   },
-  audioUrls: {
-    mainAudioUrl: "",
-    subOneAudioUrl: "",
-    subTwoAudioUrl: "",
-  },
+
   setVideoUrls: (mainVideoUrl, subOneVideoUrl, subTwoVideoUrl) =>
     set({
       videoUrls: {
@@ -20,6 +16,14 @@ const awsUrlStore = (set) => ({
         subTwoVideoUrl,
       },
     }),
+});
+
+const awsAudioStore = (set) => ({
+  audioUrls: {
+    mainAudioUrl: "",
+    subOneAudioUrl: "",
+    subTwoAudioUrl: "",
+  },
   setAudioUrls: (mainAudioUrl, subOneAudioUrl, subTwoAudioUrl) =>
     set({
       audioUrls: {
@@ -62,8 +66,14 @@ const startPointStore = (set) => ({
     }),
 });
 
-const useAwsUrlStore = create(devtools(awsUrlStore));
+const useAwsVideoStore = create(devtools(awsVideoStore));
+const useAwsAudioStore = create(devtools(awsAudioStore));
 const useStartPointStore = create(devtools(startPointStore));
 const useYouTubeUrlStore = create(devtools(youtubeUrlStore));
 
-export { useAwsUrlStore, useStartPointStore, useYouTubeUrlStore };
+export {
+  useAwsVideoStore,
+  useAwsAudioStore,
+  useStartPointStore,
+  useYouTubeUrlStore,
+};

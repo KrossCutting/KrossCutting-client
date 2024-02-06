@@ -7,7 +7,11 @@ import { IoIosAddCircle, IoIosCloseCircle } from "react-icons/io";
 import Message from "../../Message";
 import API from "../../../../config";
 import Loading from "../../shared/Loading";
-import { useAwsUrlStore, useYouTubeUrlStore } from "../../../store";
+import {
+  useAwsVideoStore,
+  useAwsAudioStore,
+  useYouTubeUrlStore,
+} from "../../../store";
 import { QUALITY_MESSAGE, PLAYTIME_ALERT } from "../../../constants/message";
 
 function UploadForm() {
@@ -15,7 +19,8 @@ function UploadForm() {
   const [isClicked, setIsClicked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [serverMessage, setServerMessage] = useState("");
-  const { setVideoUrls, setAudioUrls } = useAwsUrlStore();
+  const { setVideoUrls } = useAwsVideoStore();
+  const { setAudioUrls } = useAwsAudioStore();
   const { youtubeUrls, setYoutubeUrls } = useYouTubeUrlStore((state) => state);
 
   function handleClick() {
@@ -28,7 +33,7 @@ function UploadForm() {
     setYoutubeUrls({ ...youtubeUrls, [name]: value });
   }
 
-  async function requestUrls(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
 
@@ -72,7 +77,10 @@ function UploadForm() {
   return (
     <main className="flex flex-col items-center justify-center">
       <div className="w-400 h-300 bg-[rgba(255,255,255,0.1)] rounded-lg">
-        <form className="flex flex-col items-center justify-center w-full h-full space-y-15">
+        <form
+          className="flex flex-col items-center justify-center w-full h-full space-y-15"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col justify-center w-300 h-70">
             <span className="text-white">Main video</span>
             <input
@@ -107,11 +115,7 @@ function UploadForm() {
             )}
           </div>
           <div className="flex items-center justify-center w-full">
-            <button
-              type="button"
-              onClick={requestUrls}
-              className="my-5 font-bold text-black bg-white rounded-lg w-80 h-30 hover:bg-[#D305FF] hover:text-white"
-            >
+            <button className="my-5 font-bold text-black bg-white rounded-lg w-80 h-30 hover:bg-[#D305FF] hover:text-white">
               Submit
             </button>
           </div>
