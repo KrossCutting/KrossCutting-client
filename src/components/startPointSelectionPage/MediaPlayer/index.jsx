@@ -36,6 +36,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       }
 
       if (videoRef.current.currentTime > 60) {
+        waveSurferElem.pause();
         videoRef.current.currentTime = 60;
       }
 
@@ -44,10 +45,25 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       waveSurferElem.seekTo(runtime);
     }
 
+    function handleAudioPlay() {
+      waveSurferElem.play();
+    }
+
+    function handleAudioPause() {
+      waveSurferElem.pause();
+    }
+
     videoRef.current.addEventListener("timeupdate", handleAudioTime);
+    videoRef.current.addEventListener("play", handleAudioPlay);
+    videoRef.current.addEventListener("pause", handleAudioPause);
 
     return () => {
-      videoRef.current.removeEventListener("timeupdate", handleAudioTime);
+      if (videoRef.current) {
+        videoRef.current.removeEventListener("timeupdate", handleAudioTime);
+        videoRef.current.removeEventListener("play", handleAudioPlay);
+        videoRef.current.removeEventListener("pause", handleAudioPause);
+      }
+
       waveSurferElem.destroy();
     };
   }, [audioSrc, videoSrc, videoRef, waveSurferRef]);
@@ -104,8 +120,8 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
 }
 
 MediaPlayer.propTypes = {
-  videoUrlList: PropTypes.instanceOf(Array).isRequired,
-  audioUrlList: PropTypes.instanceOf(Array).isRequired,
+  videoUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  audioUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentIndex: PropTypes.number.isRequired,
 };
 
