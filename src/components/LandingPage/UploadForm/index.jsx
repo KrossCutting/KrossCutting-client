@@ -41,13 +41,13 @@ function UploadForm() {
       const { result } = response.data;
 
       if (result === "success") {
-        const { mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl } =
+        const { mainVideoUrl, subOneVideoUrl, subTwoVideoUrl } =
           response.data.videoUrlList;
-        const { mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl } =
+        const { mainAudioUrl, subOneAudioUrl, subTwoAudioUrl } =
           response.data.audioUrlList;
 
-        setVideoUrls(mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl);
-        setAudioUrls(mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl);
+        setVideoUrls(mainVideoUrl, subOneVideoUrl, subTwoVideoUrl);
+        setAudioUrls(mainAudioUrl, subOneAudioUrl, subTwoAudioUrl);
         setIsLoading(false);
         navigate("/selection");
 
@@ -76,7 +76,7 @@ function UploadForm() {
           <div className="flex flex-col justify-center w-300 h-70">
             <span className="text-white">Main video</span>
             <input
-              name="mainVideoUrl"
+              name="mainYoutubeUrl"
               type="text"
               className="px-10 mb-10 text-black rounded"
               onChange={handleChange}
@@ -85,14 +85,14 @@ function UploadForm() {
           <div className="flex flex-col h-auto w-300">
             <span className="text-white">Sub videos</span>
             <input
-              name="firstSubVideoUrl"
+              name="subOneYoutubeUrl"
               type="text"
               className="px-10 mb-10 text-black rounded"
               onChange={handleChange}
             />
             {isClicked && (
               <input
-                name="lastSubVideoUrl"
+                name="subTwoYoutubeUrl"
                 type="text"
                 className="px-10 mb-10 text-black rounded"
                 onChange={handleChange}

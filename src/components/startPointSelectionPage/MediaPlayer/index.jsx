@@ -61,11 +61,11 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       }
 
       if (currentIndex === 1) {
-        setStartPoints({ ...startPoints, firstSubStartPoint: userSelectPoint });
+        setStartPoints({ ...startPoints, subOneStartPoint: userSelectPoint });
       }
 
       if (currentIndex === 2) {
-        setStartPoints({ ...startPoints, lastSubStartPoint: userSelectPoint });
+        setStartPoints({ ...startPoints, subTwoStartPoint: userSelectPoint });
       }
     }
   }

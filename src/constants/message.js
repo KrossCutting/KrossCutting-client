@@ -7,7 +7,7 @@ const QUALITY_MESSAGE = {
 const VERIFICATION_MESSAGE = {
   HEADER: "All Start Points Have Been Selected",
   BODY: "",
-  FOOTER: "Do you want to proceed KrossCutting",
+  FOOTER: "Do you want to proceed KrossCutting?",
 };
 
 const PLAYTIME_ALERT = {

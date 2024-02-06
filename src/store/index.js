@@ -4,40 +4,44 @@ import { devtools } from "zustand/middleware";
 const awsUrlStore = (set) => ({
   videoUrls: {
     mainVideoUrl: "",
-    firstSubVideoUrl: "",
-    lastSubVideoUrl: "",
+    subOneVideoUrl: "",
+    subTwoVideoUrl: "",
   },
   audioUrls: {
     mainAudioUrl: "",
-    firstSubAudioUrl: "",
-    lastSubAudioUrl: "",
+    subOneAudioUrl: "",
+    subTwoAudioUrl: "",
   },
-  setVideoUrls: (mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl) =>
+  setVideoUrls: (mainVideoUrl, subOneVideoUrl, subTwoVideoUrl) =>
     set({
       videoUrls: {
         mainVideoUrl,
-        firstSubVideoUrl,
-        lastSubVideoUrl,
+        subOneVideoUrl,
+        subTwoVideoUrl,
       },
     }),
-  setAudioUrls: (mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl) =>
+  setAudioUrls: (mainAudioUrl, subOneAudioUrl, subTwoAudioUrl) =>
     set({
       audioUrls: {
         mainAudioUrl,
-        firstSubAudioUrl,
-        lastSubAudioUrl,
+        subOneAudioUrl,
+        subTwoAudioUrl,
       },
     }),
 });
 
 const youtubeUrlStore = (set) => ({
-  youtubeUrls: { mainVideoUrl: "", firstSubVideoUrl: "", lastSubVideoUrl: "" },
-  setYoutubeUrls: ({ mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl }) =>
+  youtubeUrls: {
+    mainYoutubeUrl: "",
+    subOneYoutubeUrl: "",
+    subTwoYoutubeUrl: "",
+  },
+  setYoutubeUrls: ({ mainYoutubeUrl, subOneYoutubeUrl, subTwoYoutubeUrl }) =>
     set({
       youtubeUrls: {
-        mainVideoUrl,
-        firstSubVideoUrl,
-        lastSubVideoUrl,
+        mainYoutubeUrl,
+        subOneYoutubeUrl,
+        subTwoYoutubeUrl,
       },
     }),
 });
@@ -45,15 +49,15 @@ const youtubeUrlStore = (set) => ({
 const startPointStore = (set) => ({
   startPoints: {
     mainStartPoint: undefined,
-    firstSubStartPoint: undefined,
-    lastSubStartPoint: undefined,
+    subOneStartPoint: undefined,
+    subTwoStartPoint: undefined,
   },
-  setStartPoints: ({ mainStartPoint, firstSubStartPoint, lastSubStartPoint }) =>
+  setStartPoints: ({ mainStartPoint, subOneStartPoint, subTwoStartPoint }) =>
     set({
       startPoints: {
         mainStartPoint,
-        firstSubStartPoint,
-        lastSubStartPoint,
+        subOneStartPoint,
+        subTwoStartPoint,
       },
     }),
 });

@@ -38,13 +38,13 @@ function Message({ messageType }) {
     const { result } = response.data;
 
     if (result === "success") {
-      const { mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl } =
+      const { mainVideoUrl, subOneVideoUrl, subTwoVideoUrl } =
         response.data.videoUrlList;
-      const { mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl } =
+      const { mainAudioUrl, subOneAudioUrl, subTwoAudioUrl } =
         response.data.audioUrlList;
 
-      setVideoUrls(mainVideoUrl, firstSubVideoUrl, lastSubVideoUrl);
-      setAudioUrls(mainAudioUrl, firstSubAudioUrl, lastSubAudioUrl);
+      setVideoUrls(mainVideoUrl, subOneVideoUrl, subTwoVideoUrl);
+      setAudioUrls(mainAudioUrl, subOneAudioUrl, subTwoAudioUrl);
       setIsLoading(false);
       navigate("/selection");
     }
