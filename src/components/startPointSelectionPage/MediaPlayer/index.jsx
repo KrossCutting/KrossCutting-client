@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import WaveSurfer from "wavesurfer.js";
 import TimelinePlugin from "wavesurfer.js/dist/plugins/timeline.esm";
 
-import useUrlStore from "../../../store";
+import { useStartPointStore } from "../../../store";
 
 import StartPointSelectButton from "../StartPointSelectButton";
 import StartPointSubmitButton from "../StartPointSubmitButton";
@@ -14,7 +15,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     videoUrlList[currentIndex],
     audioUrlList[currentIndex],
   ];
-  const { startPoints, setStartPoints } = useUrlStore((state) => state);
+  const { startPoints, setStartPoints } = useStartPointStore((state) => state);
 
   useEffect(() => {
     const waveSurferElem = WaveSurfer.create({
@@ -35,6 +36,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       }
 
       if (videoRef.current.currentTime > 60) {
+        waveSurferElem.pause();
         videoRef.current.currentTime = 60;
       }
 
@@ -43,16 +45,31 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       waveSurferElem.seekTo(runtime);
     }
 
+    function handleAudioPlay() {
+      waveSurferElem.play();
+    }
+
+    function handleAudioPause() {
+      waveSurferElem.pause();
+    }
+
     videoRef.current.addEventListener("timeupdate", handleAudioTime);
+    videoRef.current.addEventListener("play", handleAudioPlay);
+    videoRef.current.addEventListener("pause", handleAudioPause);
 
     return () => {
-      videoRef.current.removeEventListener("timeupdate", handleAudioTime);
+      if (videoRef.current) {
+        videoRef.current.removeEventListener("timeupdate", handleAudioTime);
+        videoRef.current.removeEventListener("play", handleAudioPlay);
+        videoRef.current.removeEventListener("pause", handleAudioPause);
+      }
+
       waveSurferElem.destroy();
     };
   }, [audioSrc, videoSrc, videoRef, waveSurferRef]);
 
   function handleStartPointSelectButton() {
-    const userSelectPoint = videoRef.current.currentTime;
+    const userSelectPoint = Math.floor(videoRef.current.currentTime);
 
     if (!Number.isNaN(userSelectPoint)) {
       if (currentIndex === 0) {
@@ -60,11 +77,11 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
       }
 
       if (currentIndex === 1) {
-        setStartPoints({ ...startPoints, firstSubStartPoint: userSelectPoint });
+        setStartPoints({ ...startPoints, subOneStartPoint: userSelectPoint });
       }
 
       if (currentIndex === 2) {
-        setStartPoints({ ...startPoints, lastSubStartPoint: userSelectPoint });
+        setStartPoints({ ...startPoints, subTwoStartPoint: userSelectPoint });
       }
     }
   }
@@ -101,5 +118,11 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     </>
   );
 }
+
+MediaPlayer.propTypes = {
+  videoUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  audioUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentIndex: PropTypes.number.isRequired,
+};
 
 export default MediaPlayer;

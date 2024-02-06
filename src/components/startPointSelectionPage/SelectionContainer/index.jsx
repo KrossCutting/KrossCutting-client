@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import MediaPlayer from "../MediaPlayer";
 
 function SelectionContainer({ videoUrlList, audioUrlList, currentIndex }) {
@@ -14,5 +15,11 @@ function SelectionContainer({ videoUrlList, audioUrlList, currentIndex }) {
     </main>
   );
 }
+
+SelectionContainer.propTypes = {
+  videoUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  audioUrlList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  currentIndex: PropTypes.number.isRequired,
+};
 
 export default SelectionContainer;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function StartPointSelectButton({ handleStartPoint }) {
   return (
     <button
@@ -9,5 +11,9 @@ function StartPointSelectButton({ handleStartPoint }) {
     </button>
   );
 }
+
+StartPointSelectButton.propTypes = {
+  handleStartPoint: PropTypes.func.isRequired,
+};
 
 export default StartPointSelectButton;

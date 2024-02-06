@@ -1,10 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function StartPointSubmitButton() {
-  // TODO: 서버와 연결 후, axios post endpoint로 사용자가 선택한 시작점을 제출합니다.
+  const navigate = useNavigate();
 
   return (
     <button
       type="button"
       className="text-white bg-purple rounded-lg text-sm px-5 py-2.5 mb-2"
+      onClick={() => navigate("/selection/verification")}
     >
       next step
     </button>

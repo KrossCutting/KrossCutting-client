@@ -4,6 +4,12 @@ const QUALITY_MESSAGE = {
   FOOTER: "Do you want to proceed with low quality?",
 };
 
+const VERIFICATION_MESSAGE = {
+  HEADER: "All Start Points Have Been Selected",
+  BODY: "",
+  FOOTER: "Do you want to proceed KrossCutting?",
+};
+
 const PLAYTIME_ALERT = {
   HEADER: "Video Is Too Long",
   BODY: "Some of the video you provided are too long to proceed Kross-cutting",
@@ -16,4 +22,9 @@ const START_POINT_ALERT = {
   FOOTER: "Please select start point to proceed Kross-cutting",
 };
 
-export { QUALITY_MESSAGE, PLAYTIME_ALERT, START_POINT_ALERT };
+export {
+  QUALITY_MESSAGE,
+  VERIFICATION_MESSAGE,
+  PLAYTIME_ALERT,
+  START_POINT_ALERT,
+};
