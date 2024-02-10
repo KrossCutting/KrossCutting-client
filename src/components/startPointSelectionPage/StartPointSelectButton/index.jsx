@@ -1,19 +1,26 @@
 import PropTypes from "prop-types";
 
-function StartPointSelectButton({ handleStartPoint }) {
+function StartPointSelectButton({ handleStartPoint, isStartPointSelected }) {
   return (
     <button
       type="button"
-      className="text-white bg-pink rounded-lg text-sm px-5 py-2.5 mb-2"
+      className={
+        isStartPointSelected ? "button-reselection" : "button-selection"
+      }
       onClick={handleStartPoint}
     >
-      select start
+      {isStartPointSelected ? "re-select" : "select start"}
     </button>
   );
 }
 
 StartPointSelectButton.propTypes = {
   handleStartPoint: PropTypes.func.isRequired,
+  isStartPointSelected: PropTypes.bool,
+};
+
+StartPointSelectButton.defaultProps = {
+  isStartPointSelected: false,
 };
 
 export default StartPointSelectButton;
