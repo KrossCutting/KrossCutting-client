@@ -16,6 +16,24 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     audioUrlList[currentIndex],
   ];
   const { startPoints, setStartPoints } = useStartPointStore((state) => state);
+  let isStartPointSelected;
+
+  switch (currentIndex) {
+    case 0:
+      isStartPointSelected = startPoints.mainStartPoint !== null;
+      break;
+
+    case 1:
+      isStartPointSelected = startPoints.subOneStartPoint !== null;
+      break;
+
+    case 2:
+      isStartPointSelected = startPoints.subTwoStartPoint !== null;
+      break;
+
+    default:
+      isStartPointSelected = false;
+  }
 
   useEffect(() => {
     const waveSurferElem = WaveSurfer.create({
@@ -88,11 +106,11 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
 
   const isAllSelected =
     videoUrlList.filter((url) => url !== "").length ===
-    Object.values(startPoints).filter((point) => point !== undefined).length;
+    Object.values(startPoints).filter((point) => point !== null).length;
 
   return (
-    <>
-      <div className="w-full h-full">
+    <main className="space-y-20">
+      <section className="w-full h-full">
         <video
           ref={videoRef}
           src={videoSrc}
@@ -104,18 +122,19 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
           <track kind="captions"></track>
         </video>
         <div className="p-10 text-white" ref={waveSurferRef}></div>
-        <p className="p-10 font-bold text-center text-white capitalize">
+        <p className="p-10 mt-10 font-bold text-center text-white capitalize">
           please select start point of music. <br />
           you can choose start point within 60 sec.
         </p>
-      </div>
-      <div className="flex flex-row justify-center gap-15">
+      </section>
+      <section className="flex flex-row justify-center gap-15">
         <StartPointSelectButton
           handleStartPoint={handleStartPointSelectButton}
+          isStartPointSelected={isStartPointSelected}
         />
         {isAllSelected && <StartPointSubmitButton />}
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
 
