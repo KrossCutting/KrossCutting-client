@@ -19,7 +19,7 @@ export default {
       colors: {
         pink: "#d9aaef",
         purple: "#D305FF",
-        mint: "80f0fc",
+        mint: "#80f0fc",
       },
     },
   },
