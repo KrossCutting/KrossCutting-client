@@ -52,9 +52,9 @@ const youtubeUrlStore = (set) => ({
 
 const startPointStore = (set) => ({
   startPoints: {
-    mainStartPoint: undefined,
-    subOneStartPoint: undefined,
-    subTwoStartPoint: undefined,
+    mainStartPoint: null,
+    subOneStartPoint: null,
+    subTwoStartPoint: null,
   },
   setStartPoints: ({ mainStartPoint, subOneStartPoint, subTwoStartPoint }) =>
     set({
