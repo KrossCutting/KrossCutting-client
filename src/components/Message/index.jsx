@@ -64,6 +64,8 @@ function Message({ messageType, handleProceedClick, handleSelectionClick }) {
 
 Message.propTypes = {
   messageType: PropTypes.instanceOf(Object).isRequired,
+  handleProceedClick: PropTypes.func.isRequired,
+  handleSelectionClick: PropTypes.func.isRequired,
 };
 
 export default Message;
