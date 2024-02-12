@@ -17,9 +17,9 @@ export default {
         "-1": "-1",
       },
       colors: {
-        pink: "#d9aaef",
-        purple: "#D305FF",
-        mint: "#80f0fc",
+        pink: "rgb(217, 170, 239)",
+        purple: "rgb(289, 98, 100)",
+        mint: "rgb(185, 49, 98)",
       },
     },
   },
