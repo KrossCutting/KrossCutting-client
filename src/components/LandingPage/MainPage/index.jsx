@@ -1,5 +1,5 @@
 import IntroBox from "../IntroBox";
-import UploadForm from "../UploadForm";
+import FormBox from "../FormBox";
 import SampleVideo from "../SampleVIdeo";
 import WhiteLogo from "../../shared/WhiteLogo";
 import VideoBackground from "../../shared/VideoBackground";
@@ -17,7 +17,7 @@ function MainPage() {
             <IntroBox />
           </section>
           <section className="flex items-center justify-center w-full space-x-30">
-            <UploadForm />
+            <FormBox />
             <SampleVideo />
           </section>
         </main>
