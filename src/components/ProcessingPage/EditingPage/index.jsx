@@ -22,6 +22,7 @@ function useProgressStatus() {
 
 function EditingPage() {
   const { data: progressData, isLoading, isError } = useProgressStatus();
+  // TODO. 서버의 진행상황을 props로 ProgressBox, ProgressBar에 전달해야합니다.
 
   /*
     TODO. 필요시 적절한 에러처리를 구현합니다.
