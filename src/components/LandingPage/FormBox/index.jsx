@@ -27,7 +27,7 @@ function FormBox() {
             {isUploadUrl === true ? "Uplaod File" : "Upload Url"}
           </button>
         </nav>
-        {isUploadUrl === true ? (
+        {isUploadUrl ? (
           <UploadUrlForm handleIsLoading={setIsLoading} />
         ) : (
           <UploadVideoForm handleIsLoading={setIsLoading} />
