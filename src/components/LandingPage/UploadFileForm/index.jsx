@@ -19,7 +19,7 @@ function UploadFileForm({ handleIsLoading }) {
   const { setVideoUrls } = useAwsVideoStore();
   const { setAudioUrls } = useAwsAudioStore();
   const [isClicked, setIsClicked] = useState(false);
-  const [files, setFiles] = useState({
+  const [videoFiles, setVideoFiles] = useState({
     mainVideoFile: null,
     subOneVideoFile: null,
     subTwoVideoFile: null,
@@ -30,13 +30,12 @@ function UploadFileForm({ handleIsLoading }) {
   }
 
   function handleFileChange(event) {
-    const fileName = event.target.name;
-    const file = event.target.files[0];
-    console.log(file);
+    const videoFileName = event.target.name;
+    const videoFile = event.target.files[0];
 
-    if (file) {
-      setFiles((prevState) => {
-        return { ...prevState, [fileName]: file }
+    if (videoFile) {
+      setVideoFiles((prevState) => {
+        return { ...prevState, [videoFileName]: videoFile }
       });
     }
   }
@@ -46,14 +45,10 @@ function UploadFileForm({ handleIsLoading }) {
     handleIsLoading(true);
 
     const formData = new FormData();
-    const fileList = Object.keys(files);
-    fileList.forEach(fileName => {
-      formData.append(fileName, files[fileName]);
+    const videoFileList = Object.keys(videoFiles);
+    videoFileList.forEach(fileName => {
+      formData.append(fileName, videoFiles[fileName]);
     });
-
-    for (const pair of formData.entries()) {
-      console.log(pair[0], pair[1]);
-    }
 
     try {
       const response = await axios.post(API.FILES, formData);
@@ -86,7 +81,7 @@ function UploadFileForm({ handleIsLoading }) {
           className="justify-between text-gray-400 input-common"
           htmlFor="mainVideo"
         >
-          {files.mainVideoFile?.name || "Upload Main Video"}
+          {videoFiles.mainVideoFile?.name || "Upload Main Video"}
           <MdOutlineFileUpload size={20} />
         </label>
         <input
@@ -105,7 +100,7 @@ function UploadFileForm({ handleIsLoading }) {
           className="justify-between text-gray-400 input-common"
           htmlFor="subOneVideo"
         >
-          {files.subOneVideoFile?.name || "Upload Sub 1 Video"}
+          {videoFiles.subOneVideoFile?.name || "Upload Sub 1 Video"}
           <MdOutlineFileUpload size={20} />
         </label>
         <input
@@ -123,7 +118,7 @@ function UploadFileForm({ handleIsLoading }) {
               className="justify-between text-gray-400 input-common"
               htmlFor="subTwoVideo"
             >
-              {files.subTwoVideoFile?.name || "Upload Sub 2 Video"}
+              {videoFiles.subTwoVideoFile?.name || "Upload Sub 2 Video"}
               <MdOutlineFileUpload size={20} />
             </label>
             <input
