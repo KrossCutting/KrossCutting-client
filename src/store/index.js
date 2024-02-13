@@ -7,7 +7,6 @@ const awsVideoStore = (set) => ({
     subOneVideoUrl: "",
     subTwoVideoUrl: "",
   },
-
   setVideoUrls: (mainVideoUrl, subOneVideoUrl, subTwoVideoUrl) =>
     set({
       videoUrls: {
@@ -50,30 +49,6 @@ const youtubeUrlStore = (set) => ({
     }),
 });
 
-const uploadedVideoStore = (set) => ({
-  uploadedVideos: {
-    mainVideoFile: null,
-    subOneVideoFile: null,
-    subTwoVideoFile: null,
-  },
-  setVideoFiles: ({ mainVideoFile, subOneVideoFile, subTwoVideoFile }) =>
-    set({
-      uploadedVideos: {
-        mainVideoFile,
-        subOneVideoFile,
-        subTwoVideoFile,
-      },
-    }),
-  clearVideoFiles: () =>
-    set({
-      uploadedVideos: {
-        mainVideoFile: null,
-        subOneVideoFile: null,
-        subTwoVideoFile: null,
-      },
-    }),
-});
-
 const startPointStore = (set) => ({
   startPoints: {
     mainStartPoint: null,
@@ -94,12 +69,10 @@ const useAwsVideoStore = create(devtools(awsVideoStore));
 const useAwsAudioStore = create(devtools(awsAudioStore));
 const useStartPointStore = create(devtools(startPointStore));
 const useYouTubeUrlStore = create(devtools(youtubeUrlStore));
-const useUploadedVideoStore = create(devtools(uploadedVideoStore));
 
 export {
   useAwsVideoStore,
   useAwsAudioStore,
   useStartPointStore,
   useYouTubeUrlStore,
-  useUploadedVideoStore,
 };
