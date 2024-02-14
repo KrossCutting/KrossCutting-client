@@ -9,8 +9,8 @@ import StartPointSelectButton from "../StartPointSelectButton";
 import StartPointSubmitButton from "../StartPointSubmitButton";
 
 function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
-  const waveSurferRef = useRef(null);
   const videoRef = useRef(null);
+  const waveSurferRef = useRef(null);
   const [videoSrc, audioSrc] = [
     videoUrlList[currentIndex],
     audioUrlList[currentIndex],
@@ -115,6 +115,7 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
           ref={videoRef}
           src={videoSrc}
           controls
+          muted
           className="w-720 h-405"
           playsInline
           type="video/mp4"

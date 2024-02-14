@@ -38,7 +38,7 @@ function UploadUrlForm({ handleIsLoading }) {
     handleIsLoading(true);
 
     try {
-      const response = await axios.post(API.CONTENTS, {
+      const response = await axios.post(API.URLS, {
         videoUrls: youtubeUrls,
         isPermitted: false,
       });
@@ -76,7 +76,7 @@ function UploadUrlForm({ handleIsLoading }) {
     handleIsLoading(true);
 
     try {
-      const response = await axios.post(API.CONTENTS, {
+      const response = await axios.post(API.URLS, {
         videoUrls: youtubeUrls,
         isPermitted: true,
       });

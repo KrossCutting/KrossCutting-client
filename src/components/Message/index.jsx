@@ -29,36 +29,30 @@ function Message({ messageType, handleProceedClick, handleSelectionClick }) {
   }
 
   return (
-    <>
-      {console.log(isProceedDisabled)}
-      <Modal>
-        <main className="modal-wrapper">
-          <section className="space-y-20 text-white">
-            <p className="font-bold text-25">{HEADER}</p>
-            <div className="space-y-5">
-              <p className="font-thin text-20">{BODY}</p>
-              <p className="font-thin text-20">{FOOTER}</p>
-            </div>
-          </section>
-          <section className="flex mt-5 font-bold space-x-30 jw-full">
-            <button
-              className="button-selection"
-              onClick={() => handleSelectionClick(null)}
-            >
-              Go to Selection
+    <Modal>
+      <main className="modal-wrapper">
+        <section className="space-y-20 text-white">
+          <p className="font-bold text-25">{HEADER}</p>
+          <div className="space-y-5">
+            <p className="font-thin text-20">{BODY}</p>
+            <p className="font-thin text-20">{FOOTER}</p>
+          </div>
+        </section>
+        <section className="flex mt-5 font-bold space-x-30 jw-full">
+          <button
+            className="button-selection"
+            onClick={() => handleSelectionClick(null)}
+          >
+            Go to Selection
+          </button>
+          {!isProceedDisabled && (
+            <button className="button-submission" onClick={handleProceedClick}>
+              Yes, proceed
             </button>
-            {!isProceedDisabled && (
-              <button
-                className="button-submission"
-                onClick={handleProceedClick}
-              >
-                Yes, proceed
-              </button>
-            )}
-          </section>
-        </main>
-      </Modal>
-    </>
+          )}
+        </section>
+      </main>
+    </Modal>
   );
 }
 
