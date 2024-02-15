@@ -109,8 +109,8 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
     Object.values(startPoints).filter((point) => point !== null).length;
 
   return (
-    <main className="space-y-20">
-      <section className="w-full h-full">
+    <main>
+      <section className="w-full h-full space-y-20">
         <video
           ref={videoRef}
           src={videoSrc}
@@ -122,13 +122,14 @@ function MediaPlayer({ videoUrlList, audioUrlList, currentIndex }) {
         >
           <track kind="captions"></track>
         </video>
-        <div className="p-10 text-white" ref={waveSurferRef}></div>
-        <p className="p-10 mt-10 font-bold text-center text-white capitalize">
-          please select start point of music. <br />
-          you can choose start point within 60 sec.
+        <div className="p-10 space-y-20 text-white" ref={waveSurferRef}></div>
+        <p className="p-10 mt-10 space-x-5 text-base font-thin text-center text-white capitalize md:text-lg lg:text-20">
+          please select start point of music <br />
+          you can choose start point
+          <span className="font-bold">within 60 sec</span>
         </p>
       </section>
-      <section className="flex flex-row justify-center gap-15">
+      <section className="flex flex-row items-center justify-center gap-15">
         <StartPointSelectButton
           handleStartPoint={handleStartPointSelectButton}
           isStartPointSelected={isStartPointSelected}
