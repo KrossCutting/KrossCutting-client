@@ -16,20 +16,31 @@ function App() {
   const hasAwsAudioUrls = audioUrls.mainAudioUrl && audioUrls.subOneAudioUrl;
 
   return (
-    <Routes>
-      <Route path="/" element={<MainPage />}></Route>
-      <Route
-        path="/selection"
-        element={
-          hasAwsVideoUrls && hasAwsAudioUrls ? (
-            <CarouselContainer />
-          ) : (
-            <Navigate to="/" replace />
-          )
-        }
-      ></Route>
-      <Route path="/editing" element={<EditingPage />}></Route>
-    </Routes>
+    <main className="box-border overflow-hidden">
+      <Routes>
+        <Route path="/" element={<MainPage />}></Route>
+        <Route
+          path="/selection"
+          element={
+            hasAwsVideoUrls && hasAwsAudioUrls ? (
+              <CarouselContainer />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        ></Route>
+        <Route
+          path="/editing"
+          element={
+            hasAwsVideoUrls && hasAwsAudioUrls ? (
+              <EditingPage />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        ></Route>
+      </Routes>
+    </main>
   );
 }
 
