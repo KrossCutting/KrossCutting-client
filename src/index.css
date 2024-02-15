@@ -26,24 +26,33 @@
 
   .button-selection {
     @apply button-animation active:scale-90 active:bg-mint active:text-white hover:bg-white
-     hover:text-black text-white bg-pink rounded-lg text-17
-      px-5 py-2.5 mb-2 w-150 font-bold;
+     hover:text-black text-white bg-pink rounded-lg text-17 text-center
+      px-5 py-2.5 mb-2 w-170 font-bold;
+
+    @apply text-sm px-3 py-1.5 w-100 font-bold;
+    @apply lg:text-17 lg:px-5 lg:py-2.5 lg:w-150;
   }
 
   .button-reselection {
     @apply button-animation active:scale-90 active:bg-pink active:text-white hover:bg-white
-     hover:text-black text-white bg-mint rounded-lg text-17
-      px-5 py-2.5 mb-2 w-150 font-bold;
+     hover:text-black text-white bg-mint rounded-lg text-17 text-center
+      px-5 py-2.5 mb-2 w-170  font-bold;
+
+    @apply text-sm px-3 py-1.5 w-100 font-bold;
+    @apply lg:text-17 lg:px-5 lg:py-2.5 lg:w-150;
   }
 
   .button-submission {
     @apply button-animation active:scale-90 active:bg-mint active:text-white hover:bg-white
-    hover:text-black text-white bg-purple rounded-lg text-17
-     px-5 py-2.5 mb-2 w-150 font-bold;
+    hover:text-black text-white bg-purple rounded-lg text-17 text-center
+     px-5 py-2.5 mb-2 w-170 font-bold;
+
+    @apply text-sm px-3 py-1.5 w-100 font-bold;
+    @apply lg:text-17 lg:px-5 lg:py-2.5 lg:w-150;
   }
 
   .modal-wrapper {
-    @apply z-50 flex flex-col space-y-30 items-center justify-center p-20 text-center
+    @apply z-50 flex flex-col space-y-20 items-center justify-center p-20 text-center
       gap-15 rounded-3xl bg-[rgba(230,154,246,0.9)] w-500 h-300;
   }
 
