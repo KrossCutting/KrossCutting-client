@@ -17,8 +17,8 @@ function MainPage() {
             <IntroBox />
           </section>
           <section className="flex flex-col items-center justify-center w-full space-y-30 md:flex-row md:space-y-0 md:space-x-20">
-            <FormBox />
             <SampleVideo />
+            <FormBox />
           </section>
         </main>
       </div>
