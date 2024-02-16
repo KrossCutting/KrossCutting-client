@@ -9,10 +9,7 @@ import { IoIosAddCircle, IoIosCloseCircle } from "react-icons/io";
 import { MdOutlineFileUpload } from "react-icons/md";
 
 import API from "../../../../config";
-import {
-  useAwsVideoStore,
-  useAwsAudioStore,
-} from "../../../store";
+import { useAwsVideoStore, useAwsAudioStore } from "../../../store";
 
 function UploadFileForm({ handleIsLoading }) {
   const navigate = useNavigate();
@@ -35,7 +32,7 @@ function UploadFileForm({ handleIsLoading }) {
 
     if (videoFile) {
       setVideoFiles((prevState) => {
-        return { ...prevState, [videoFileName]: videoFile }
+        return { ...prevState, [videoFileName]: videoFile };
       });
     }
   }
@@ -46,7 +43,7 @@ function UploadFileForm({ handleIsLoading }) {
 
     const formData = new FormData();
     const videoFileList = Object.keys(videoFiles);
-    videoFileList.forEach(fileName => {
+    videoFileList.forEach((fileName) => {
       formData.append(fileName, videoFiles[fileName]);
     });
 
@@ -72,10 +69,10 @@ function UploadFileForm({ handleIsLoading }) {
 
   return (
     <form
-      className="flex flex-col items-center justify-center w-full h-auto "
+      className="flex flex-col items-center justify-center w-full h-auto"
       onSubmit={handleVideoSubmit}
     >
-      <div className="flex flex-col justify-center w-300 h-70">
+      <div className="flex flex-col justify-center w-full h-70">
         <span> Main video</span>
         <label
           className="justify-between text-gray-400 input-common"
@@ -94,7 +91,7 @@ function UploadFileForm({ handleIsLoading }) {
           required
         />
       </div>
-      <div className="flex flex-col h-auto w-300">
+      <div className="flex flex-col justify-center w-full h-auto">
         <span>Sub videos</span>
         <label
           className="justify-between text-gray-400 input-common"

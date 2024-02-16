@@ -109,7 +109,7 @@ function UploadUrlForm({ handleIsLoading }) {
         className="flex flex-col items-center justify-center w-full h-auto "
         onSubmit={handleUrlSubmit}
       >
-        <div className="flex flex-col justify-center w-300 h-70">
+        <div className="flex flex-col justify-center w-full h-70">
           <span className="text-white">Main video</span>
           <input
             name="mainYoutubeUrl"
@@ -120,7 +120,7 @@ function UploadUrlForm({ handleIsLoading }) {
             required
           />
         </div>
-        <div className="flex flex-col h-auto w-300">
+        <div className="flex flex-col justify-center w-full h-auto">
           <span className="text-white">Sub videos</span>
           <input
             name="subOneYoutubeUrl"
