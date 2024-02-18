@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 import DownloadBox from "../DownloadBox";
 import ProgressMessage from "../ProgressMessage";
 import Loading from "../../shared/Loading";
 
+import { useFinalVideoUrlStore } from "../../../store";
 import { PROGRESS_MESSAGE } from "../../../constants/message";
 
 function ProgressBox({ progressStatus }) {
   const [isLoading, setIsLoading] = useState(true);
+  const { finalVideoUrl } = useFinalVideoUrlStore();
   let messageType = "Loading...";
 
   useEffect(() => {
@@ -18,14 +19,6 @@ function ProgressBox({ progressStatus }) {
   }, [progressStatus]);
 
   switch (progressStatus) {
-    case "start":
-      messageType = PROGRESS_MESSAGE.AUDIO_EXTRACTING;
-      break;
-
-    case "audios":
-      messageType = PROGRESS_MESSAGE.AUDIO_EXTRACTING;
-      break;
-
     case "frames":
       messageType = PROGRESS_MESSAGE.FRAME_EXPORTING;
       break;
@@ -43,7 +36,7 @@ function ProgressBox({ progressStatus }) {
   }
 
   const progressContent =
-    messageType === "completed" ? (
+    finalVideoUrl !== "" ? (
       <DownloadBox />
     ) : (
       <ProgressMessage messageContent={messageType} />
@@ -59,8 +52,8 @@ function ProgressBox({ progressStatus }) {
   );
 }
 
-ProgressBox.propTypes = {
-  progressStatus: PropTypes.string.isRequired,
+ProgressBox.defaultProps = {
+  progressStatus: "frames",
 };
 
 export default ProgressBox;

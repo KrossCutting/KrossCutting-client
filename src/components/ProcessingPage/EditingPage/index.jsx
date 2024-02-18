@@ -1,14 +1,17 @@
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import axios from "axios";
 
-import WhiteLogo from "../../shared/WhiteLogo";
-import VideoBackground from "../../shared/VideoBackground";
 import ProgressBox from "../ProgressBox";
 import ProgressBar from "../ProgressBar";
-import API from "../../../../config";
+import WhiteLogo from "../../shared/WhiteLogo";
+import VideoBackground from "../../shared/VideoBackground";
 
-function useProgressStatus() {
+import API from "../../../../config";
+import { useFinalVideoUrlStore } from "../../../store";
+
+function useProgressStatus(videoStatus) {
   return useQuery({
     queryKey: ["progressStatus"],
     queryFn: async () => {
@@ -18,12 +21,20 @@ function useProgressStatus() {
     },
     // mockup시연의 경우 짧게 설정하고, 이후는 5-10초로 설정합니다.
     refetchInterval: 1000,
+    enabled: videoStatus,
   });
 }
 
 function EditingPage() {
-  const { data, isLoading, isError } = useProgressStatus();
-  // TODO. 서버의 진행상황을 props로 ProgressBox, ProgressBar에 전달해야합니다.
+  const [isCuttingInProgress, setIsCuttingInProgress] = useState(true);
+  const { finalVideoUrl } = useFinalVideoUrlStore();
+  const { data } = useProgressStatus(isCuttingInProgress);
+
+  useEffect(() => {
+    if (finalVideoUrl !== "") {
+      setIsCuttingInProgress(false);
+    }
+  }, [finalVideoUrl]);
 
   return (
     <main className="box-border w-screen h-screen">
