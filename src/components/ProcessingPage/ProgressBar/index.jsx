@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 function ProgressBar({ progressStatus }) {
   const [progressWidth, setProgressWidth] = useState(0);
@@ -29,8 +28,8 @@ function ProgressBar({ progressStatus }) {
   );
 }
 
-ProgressBar.propTypes = {
-  progressStatus: PropTypes.string.isRequired,
+ProgressBar.defaultProps = {
+  progressStatus: "frames",
 };
 
 export default ProgressBar;
