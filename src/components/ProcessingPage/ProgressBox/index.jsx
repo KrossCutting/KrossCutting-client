@@ -19,16 +19,24 @@ function ProgressBox({ progressStatus }) {
   }, [progressStatus]);
 
   switch (progressStatus) {
+    case "start":
+      messageType = PROGRESS_MESSAGE.START_KROSSCUTTING;
+      break;
+
     case "frames":
       messageType = PROGRESS_MESSAGE.FRAME_EXPORTING;
       break;
 
-    case "editpoints":
+    case "singleShot":
       messageType = PROGRESS_MESSAGE.MOVEMENT_DETECTION;
       break;
 
-    case "completed":
-      messageType = "completed";
+    case "editing":
+      messageType = PROGRESS_MESSAGE.EDITING;
+      break;
+
+    case "exporting":
+      messageType = PROGRESS_MESSAGE.EXPORTING;
       break;
 
     default:
@@ -53,7 +61,7 @@ function ProgressBox({ progressStatus }) {
 }
 
 ProgressBox.defaultProps = {
-  progressStatus: "frames",
+  progressStatus: "start",
 };
 
 export default ProgressBox;

@@ -42,8 +42,8 @@ function Message({ messageType, handleProceedClick, handleSelectionClick }) {
         <section className="space-y-20 text-white">
           <div className="text-lg font-bold md:text-25">{HEADER}</div>
           <div className="space-y-5">
-            <span className="text-base font-thin md:text-20">{BODY}</span>
-            <span className="text-base font-thin md:text-20">{FOOTER}</span>
+            <div className="text-base font-thin md:text-20">{BODY}</div>
+            <div className="text-base font-thin md:text-20">{FOOTER}</div>
           </div>
         </section>
         <section className="flex mt-5 space-x-20 font-bold">

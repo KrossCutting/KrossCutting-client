@@ -11,7 +11,7 @@ import VideoBackground from "../../shared/VideoBackground";
 import API from "../../../../config";
 import { useFinalVideoUrlStore } from "../../../store";
 
-function useProgressStatus(videoStatus) {
+function useProgressStatus(isEnable) {
   return useQuery({
     queryKey: ["progressStatus"],
     queryFn: async () => {
@@ -21,7 +21,7 @@ function useProgressStatus(videoStatus) {
     },
     // mockup시연의 경우 짧게 설정하고, 이후는 5-10초로 설정합니다.
     refetchInterval: 1000,
-    enabled: videoStatus,
+    enabled: isEnable,
   });
 }
 
