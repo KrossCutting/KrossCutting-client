@@ -36,7 +36,7 @@ function ProgressBar({ progressStatus }) {
 }
 
 ProgressBar.defaultProps = {
-  progressStatus: "frames",
+  progressStatus: "start",
 };
 
 export default ProgressBar;

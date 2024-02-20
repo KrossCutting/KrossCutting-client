@@ -32,6 +32,8 @@ function StartPointSubmitButton() {
 
       const { result, message, labelInfo } = response.data;
 
+      // To Do. 추후 배포시 렌더링되는 EditPage로 옮겨할 수 있음
+      // 현재 여기에쓴 이유는 개발자 모드로 useEffect가 두번 발동되기 때문
       if (result === "success") {
         setIsLoading(false);
         navigate("/editing");
