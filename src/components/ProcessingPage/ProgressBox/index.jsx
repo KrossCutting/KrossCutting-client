@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 
 import DownloadBox from "../DownloadBox";
 import ProgressMessage from "../ProgressMessage";
 import Loading from "../../shared/Loading";
 
+import { useFinalVideoUrlStore } from "../../../store";
 import { PROGRESS_MESSAGE } from "../../../constants/message";
 
 function ProgressBox({ progressStatus }) {
   const [isLoading, setIsLoading] = useState(true);
+  const { finalVideoUrl } = useFinalVideoUrlStore();
   let messageType = "Loading...";
 
   useEffect(() => {
@@ -19,23 +20,23 @@ function ProgressBox({ progressStatus }) {
 
   switch (progressStatus) {
     case "start":
-      messageType = PROGRESS_MESSAGE.AUDIO_EXTRACTING;
-      break;
-
-    case "audios":
-      messageType = PROGRESS_MESSAGE.AUDIO_EXTRACTING;
+      messageType = PROGRESS_MESSAGE.START_KROSSCUTTING;
       break;
 
     case "frames":
       messageType = PROGRESS_MESSAGE.FRAME_EXPORTING;
       break;
 
-    case "editpoints":
+    case "singleShot":
       messageType = PROGRESS_MESSAGE.MOVEMENT_DETECTION;
       break;
 
-    case "completed":
-      messageType = "completed";
+    case "editing":
+      messageType = PROGRESS_MESSAGE.EDITING;
+      break;
+
+    case "exporting":
+      messageType = PROGRESS_MESSAGE.EXPORTING;
       break;
 
     default:
@@ -43,7 +44,7 @@ function ProgressBox({ progressStatus }) {
   }
 
   const progressContent =
-    messageType === "completed" ? (
+    finalVideoUrl !== "" ? (
       <DownloadBox />
     ) : (
       <ProgressMessage messageContent={messageType} />
@@ -59,8 +60,8 @@ function ProgressBox({ progressStatus }) {
   );
 }
 
-ProgressBox.propTypes = {
-  progressStatus: PropTypes.string.isRequired,
+ProgressBox.defaultProps = {
+  progressStatus: "start",
 };
 
 export default ProgressBox;

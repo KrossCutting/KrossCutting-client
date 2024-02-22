@@ -65,14 +65,21 @@ const startPointStore = (set) => ({
     }),
 });
 
+const finalVideoUrlStore = (set) => ({
+  finalVideoUrl: "",
+  setFinalVideoUrl: (finalVideoUrl) => set({ finalVideoUrl }),
+});
+
 const useAwsVideoStore = create(devtools(awsVideoStore));
 const useAwsAudioStore = create(devtools(awsAudioStore));
 const useStartPointStore = create(devtools(startPointStore));
 const useYouTubeUrlStore = create(devtools(youtubeUrlStore));
+const useFinalVideoUrlStore = create(devtools(finalVideoUrlStore));
 
 export {
   useAwsVideoStore,
   useAwsAudioStore,
   useStartPointStore,
   useYouTubeUrlStore,
+  useFinalVideoUrlStore,
 };
