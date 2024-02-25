@@ -30,8 +30,9 @@ const PROCEED_MESSAGE = {
 };
 
 const PROGRESS_MESSAGE = {
-  AUDIO_EXTRACTING: "Extracting audio files, in progress...",
-  FACE_DETECTION: "Facial detection in progress, please wait a moment...",
+  START_KROSSCUTTING: "Starting Krosscutting",
+  AUDIO_EXTRACTING: "Extracting audio files...",
+  FRAME_EXPORTING: "Exporting frames to analyze...",
   MOVEMENT_DETECTION: "Motion detection in progress, please wait a moment...",
   EDITING: "Editing video, please wait...",
   EXPORTING: "Exporting video, please wait...",

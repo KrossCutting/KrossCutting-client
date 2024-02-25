@@ -16,13 +16,21 @@ function Message({ messageType, handleProceedClick, handleSelectionClick }) {
   const isProceedDisabled =
     messageType === AUDIO_ALERT || messageType === PLAYTIME_ALERT;
 
-  const startPointMessageBody = `Main video: +${startPoints.mainStartPoint} sec,
-    \nSub video 1: +${startPoints.subOneStartPoint} sec,
-    ${
-      videoUrls.subTwoVideoUrl
-        ? `\nSub video 2: +${startPoints.subTwoStartPoint} sec`
-        : ""
-    }`;
+  const startPointMessageBody = (
+    <div className="space-y-5">
+      <p className="font-thin text-15">
+        Main video: +{startPoints.mainStartPoint} sec
+        <br />
+        Sub video 1: +{startPoints.subOneStartPoint} sec
+        {videoUrls.subTwoVideoUrl && (
+          <>
+            <br />
+            Sub video 2: +{startPoints.subTwoStartPoint} sec
+          </>
+        )}
+      </p>
+    </div>
+  );
 
   if (messageType === PROCEED_MESSAGE) {
     PROCEED_MESSAGE.BODY = startPointMessageBody;
@@ -30,15 +38,15 @@ function Message({ messageType, handleProceedClick, handleSelectionClick }) {
 
   return (
     <Modal>
-      <main className="modal-wrapper">
+      <main className="overflow-hidden modal-wrapper m-w-500">
         <section className="space-y-20 text-white">
-          <p className="font-bold text-25">{HEADER}</p>
+          <div className="text-lg font-bold md:text-25">{HEADER}</div>
           <div className="space-y-5">
-            <p className="font-thin text-20">{BODY}</p>
-            <p className="font-thin text-20">{FOOTER}</p>
+            <div className="text-base font-thin md:text-20">{BODY}</div>
+            <div className="text-base font-thin md:text-20">{FOOTER}</div>
           </div>
         </section>
-        <section className="flex mt-5 font-bold space-x-30 jw-full">
+        <section className="flex mt-5 space-x-20 font-bold">
           <button
             className="button-selection"
             onClick={() => handleSelectionClick(null)}

@@ -1,22 +1,67 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import DownloadBox from "../DownloadBox";
+import ProgressMessage from "../ProgressMessage";
+import Loading from "../../shared/Loading";
 
+import { useFinalVideoUrlStore } from "../../../store";
 import { PROGRESS_MESSAGE } from "../../../constants/message";
 
-function ProgressBox({ children }) {
-  const [progressStatus, setProgressStatus] = useState();
-  // TODO. 리액트 쿼리, 혹은 다른 적절한 방법을 통해 작업이 완료될 시 DownloadBox컴포넌트를 렌더링합니다.
-  // TODO. 작업이 진행중일 경우 진행상황에 맞춰 PROGRESS_MESSAGE를 렌더링합니다.
+function ProgressBox({ progressStatus }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const { finalVideoUrl } = useFinalVideoUrlStore();
+  let messageType = "Loading...";
+
+  useEffect(() => {
+    if (progressStatus) {
+      setIsLoading(false);
+    }
+  }, [progressStatus]);
+
+  switch (progressStatus) {
+    case "start":
+      messageType = PROGRESS_MESSAGE.START_KROSSCUTTING;
+      break;
+
+    case "frames":
+      messageType = PROGRESS_MESSAGE.FRAME_EXPORTING;
+      break;
+
+    case "singleShot":
+      messageType = PROGRESS_MESSAGE.MOVEMENT_DETECTION;
+      break;
+
+    case "editing":
+      messageType = PROGRESS_MESSAGE.EDITING;
+      break;
+
+    case "exporting":
+      messageType = PROGRESS_MESSAGE.EXPORTING;
+      break;
+
+    default:
+      messageType = "Loading...";
+  }
+
+  const progressContent =
+    finalVideoUrl !== "" ? (
+      <DownloadBox />
+    ) : (
+      <ProgressMessage messageContent={messageType} />
+    );
 
   return (
-    <div className="bg-[rgba(255,255,255,0.3)] w-700 h-400 rounded-3xl flex justify-center items-center">
-      <div className="text-white text-30">
-        {/* <p>{PROGRESS_MESSAGE.AUDIO_EXTRACTING}</p> */}
-        <DownloadBox />
+    <div className="bg-[rgba(255,255,255,0.3)] w-[60vw] h-auto min-h-400 min-w-400 rounded-3xl flex justify-center items-center">
+      <div className="text-sm text-white md:text-lg lg:text-30">
+        {progressContent}
       </div>
+      {isLoading && <Loading />}
     </div>
   );
 }
+
+ProgressBox.defaultProps = {
+  progressStatus: "start",
+};
 
 export default ProgressBox;

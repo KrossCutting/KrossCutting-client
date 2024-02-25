@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useFinalVideoUrlStore } from "../../../store";
 
 function DownloadBox() {
   const navigate = useNavigate();
+  const { finalVideoUrl } = useFinalVideoUrlStore();
 
   function handleHomeButtonClick() {
     navigate("/");
@@ -16,9 +18,12 @@ function DownloadBox() {
         <br /> has been successfully completed!
       </p>
       <div className="flex flex-col items-center justify-center font-bold space-y-30 text-20">
-        <button type="button" className="rounded bg-purple w-130 h-50">
+        <a
+          href={finalVideoUrl}
+          className="flex items-center justify-center rounded bg-purple w-130 h-50"
+        >
           Download
-        </button>
+        </a>
       </div>
       <div className="flex flex-col items-center justify-center text-20">
         <p className="font-thin">Try another Kross-cutting?</p>
