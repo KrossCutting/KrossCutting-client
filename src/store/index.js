@@ -15,6 +15,14 @@ const awsVideoStore = (set) => ({
         subTwoVideoUrl,
       },
     }),
+  clearVideoUrls: () =>
+    set({
+      videoUrls: {
+        mainVideoUrl: "",
+        subOneVideoUrl: "",
+        subTwoVideoUrl: "",
+      },
+    }),
 });
 
 const awsAudioStore = (set) => ({
@@ -31,6 +39,15 @@ const awsAudioStore = (set) => ({
         subTwoAudioUrl,
       },
     }),
+  clearAudioUrls: () => {
+    set({
+      audioUrls: {
+        mainAudioUrl: "",
+        subOneAudioUrl: "",
+        subTwoAudioUrl: "",
+      },
+    });
+  },
 });
 
 const youtubeUrlStore = (set) => ({
@@ -47,6 +64,15 @@ const youtubeUrlStore = (set) => ({
         subTwoYoutubeUrl,
       },
     }),
+  clearYoutubeUrls: () => {
+    set({
+      youtubeUrls: {
+        mainYoutubeUrl: "",
+        subOneYoutubeUrl: "",
+        subTwoYoutubeUrl: "",
+      },
+    });
+  },
 });
 
 const startPointStore = (set) => ({
@@ -63,11 +89,24 @@ const startPointStore = (set) => ({
         subTwoStartPoint,
       },
     }),
+  clearStartPointStore: () => {
+    set({
+      startPoints: {
+        mainStartPoint: null,
+        subOneStartPoint: null,
+        subTwoStartPoint: null,
+      },
+    });
+  },
 });
 
 const finalVideoUrlStore = (set) => ({
   finalVideoUrl: "",
   setFinalVideoUrl: (finalVideoUrl) => set({ finalVideoUrl }),
+  clearFinalVideoUrl: () =>
+    set({
+      finalVideoUrl: "",
+    }),
 });
 
 const useAwsVideoStore = create(devtools(awsVideoStore));
