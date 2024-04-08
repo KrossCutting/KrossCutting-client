@@ -6,7 +6,9 @@
 
 KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 수 있는 웹/앱 서비스 입니다. 무대영상과 직캠영상을 모두 지원하며, 영상만 넣으면 자동으로 교차 편집된 영상을 다운로드 받을 수 있습니다.
 
-Deployed website | [Web Repository](https://github.com/KrossCutting/KrossCutting-client) | [app Repository](https://github.com/KrossCutting/KrossCutting-app) | [Server Repository](https://github.com/KrossCutting/KrossCutting-server))
+[Deployed website](https://krosscutting.com) | [Web Repository](https://github.com/KrossCutting/KrossCutting-client) | [app Repository](https://github.com/KrossCutting/KrossCutting-app) | [Server Repository](https://github.com/KrossCutting/KrossCutting-server)
+
+</br>
 
 # 🔍 Preview
 
@@ -21,7 +23,6 @@ Deployed website | [Web Repository](https://github.com/KrossCutting/KrossCutting
 </div>
 </details>
 
-
 ### 세로 영상
 
 <details>
@@ -33,30 +34,53 @@ Deployed website | [Web Repository](https://github.com/KrossCutting/KrossCutting
 </div>
 </details>
 
+</br>
+</br>
+
 # 🛠️ Tech Stack
 
 ### Client (web)
 
-- JavaScript, React, zustand, Vite, Tailwincss
+<p>
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+  <img src="https://img.shields.io/badge/tailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+  <img src="https://img.shields.io/badge/zustand-8A385D?style=for-the-badge">
+  <img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
+</p>
+
+</br>
 
 ### Client (app)
 
-- dart, flutter
+<p>
+  <img src="https://img.shields.io/badge/dart-0175C2?style=for-the-badge&logo=dart&logoColor=white">
+  <img src="https://img.shields.io/badge/flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white">
+</p>
+
+</br>
 
 ### Server
 
-- Node.js, Python, expres.js, multer, ffmpeg, sharp, tensorflow
+<p>
+  <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white">
+  <img src="https://img.shields.io/badge/express.js-000000?style=for-the-badge&logo=express&logoColor=white">
+  <img src="https://img.shields.io/badge/sharp-99CC00?style=for-the-badge&logo=sharp&logoColor=white">
+  <img src="https://img.shields.io/badge/multer-000000?style=for-the-badge">
+  <img src="https://img.shields.io/badge/ffmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white">
+  <img src="https://img.shields.io/badge/tensorflow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white">
+</p>
+
+</br>
 
 # Contents
 
-- [🔥 Motivation](#🔥-motivation)
-- [🕹️ Features](#-features-gif첨부필요)
-  - [영상 업로드](#영상-업로드-web--app)
-    - [가로영상](#가로영상-무대영상)
-    - [세로영상](#세로영상-직캠영상)
+- [🔥 Motivation](#-motivation)
+- [🕹️ Features](#%EF%B8%8F-features)
+  - [영상 업로드](#영상-업로드-web---app)
   - [시작점 및 편집점 선택](#시작점-및-편집점-선택)
   - [교차편집 영상 다운로드](#교차편집-영상-다운로드)
-- [🤔 Challenges](#🤔-challenges)
+- [🤔 Challenges](#-challenges)
   - [1. 영상의 시작점을 ms 단위까지 맞출 수 있을까?](#1-영상의-시작점을-ms-단위까지-맞출-수-있을까)
     - [1-1. 프레임의 이해: 영상의 시작점을 왜 ms 단위까지 맞춰줘야할까?](#1-1-프레임의-이해-영상의-시작점을-왜-ms-단위까지-맞춰줘야할까)
     - [1-2. 오디오 정밀분석: 어떻게 ms 단위의 차이를 조정할 수 있을까?](#1-2-오디오-정밀분석-어떻게-ms-단위의-차이를-조정할-수-있을까)
@@ -70,46 +94,58 @@ Deployed website | [Web Repository](https://github.com/KrossCutting/KrossCutting
     - [3-2. 리사이징 효과](#3-2-리사이징-효과)
     - [3-3. 프레임 간 디졸브 효과](#3-3-프레임-간-디졸브-효과)
   - [4. App은 Web과 뭐가 다를까?](#4-app은-web과-뭐가-다를까)
-  - [4-1. Flutter vs ReactNative](#4-1-flutter-vs-reactnative)
-  - [4-2. App 환경과 Web 환경의 차이 1 - 사용자 보호방식](#4-2-app-환경과-web-환경의-차이-1---사용자-보호방식)
-  - [4-3. App 환경과 Web 환경의 차이 2 - UI 조작 방식](#4-3-app-환경과-web-환경의-차이-2---ui-조작-방식)
-- [📆 Schedule](#📆-schedule)
-- [🤼‍♂️ Memoir](#🤼‍♂️-memoir)
+    - [4-1. Flutter vs ReactNative](#4-1-flutter-vs-reactnative)
+    - [4-2. App 환경과 Web 환경의 차이 1 - 사용자 보호방식](#4-2-app-환경과-web-환경의-차이-1---사용자-보호방식)
+    - [4-3. App 환경과 Web 환경의 차이 2 - UI 조작 방식](#4-3-app-환경과-web-환경의-차이-2---ui-조작-방식)
+- [📆 Schedule](#-schedule)
+- [🤼‍♂️ Memoir](#%EF%B8%8F-memoir)
   - [**한민지**](#한민지)
   - [**채민석**](#채민석)
   - [**이수진**](#이수진)
 
+</br>
 
 # 🔥 Motivation
 
-한국 아이돌이 국내뿐만 아니라 글로벌적인 위상이 높아짐에 따라 그들을 대상으로 하는 다양한 2차 창작물이 생산되기 시작했습니다. 그 중에서도 특히 여러 무대를 하나의 영상으로 합치는 교차편집(Stage Mix)은 팬들 사이에서 많은 인기를 끌고 있습니다. 하지만 교차편집 영상을 만드는 데에는 전문 영상 편집 프로그램 사용이 필요할 뿐만 아니라, 모든 영상별로 편집점을 찾고 컷마다 각종 편집이 필요하기 때문에, 일반적으로 모든 팬들이 쉽게 시도할 수 없는 경우가 많습니다. 
+한국 아이돌이 국내뿐만 아니라 글로벌적인 위상이 높아짐에 따라 그들을 대상으로 하는 다양한 2차 창작물이 생산되기 시작했습니다. 그 중에서도 특히 여러 무대를 하나의 영상으로 합치는 교차편집(Stage Mix)은 팬들 사이에서 많은 인기를 끌고 있습니다. 하지만 교차편집 영상을 만드는 데에는 전문 영상 편집 프로그램 사용이 필요할 뿐만 아니라, 모든 영상별로 편집점을 찾고 컷마다 각종 편집이 필요하기 때문에, 일반적으로 모든 팬들이 쉽게 시도할 수 없는 경우가 많습니다.
 
 그래서 저희는, **누구나 쉽고 간편하게 본인이 좋아하는 아이돌의 교차편집 영상을 만들수 있게 하고자** 이 프로젝트를 시작하게 됐습니다. 꼭 무대영상이 아니더라도, 본인이 좋아하는 아이돌의 직캠영상 혹은 숏폼영상을 간편하게 편집해서 소장할 수 있습니다.
 
-# 🕹️ Features (gif첨부필요)
+</br>
+
+# 🕹️ Features
 
 ## 영상 업로드 (web &  app)
 
-### 가로영상 (무대영상)
+- 웹의 경우 Upload Video 버튼을 눌러 가로영상을 업로드 할 수 있습니다.
+- 모바일의 경우 원하는 비율의 영상을 버튼을 클릭하면 사용자의 갤러리로 이동합니다.
 
-- 웹의 경우 상단의 Horizontal 버튼을 눌러 가로영상을 업로드 할 수 있습니다.
-- 앱의 경우 16:9 버튼을 클릭하면 사용자의 갤러리로 이동합니다. 갤러리에서 업로드할 가로 영상을 선택합니다.
-    - 이때 가로영상이란, 직캠영상이 아닌 아이돌의 무대영상을 의미합니다.
-    - 영상은 최대 5분 내의 영상만 업로드 가능합니다.
-
-### 세로영상 (직캠영상)
-
-- 웹의 경우 상단의 Vertical 버튼을 눌러 세로영상을 업로드 할 수 있습니다.
-- 앱의 경우 9:16 버튼을 클릭하면 사용자의 갤러리로 이동합니다. 갤러리에서 업로드할 세로 영상을 선택합니다.
-    - 이때 세로영상이란, 무대영상이 아닌 아이돌의 직캠영상을 의미합니다.
+    <table align=center>
+<tr>
+  <td>
+	  <img width="300" alt="explain saturation" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/8b29b188-ed04-461c-b889-2e64739c3cd8">
+  </td>
+  <td>
+	  <img height="300" alt="explain brightness" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/751d3066-76e6-47dd-8b2c-02e52e4baee3">
+  </td>
+</tr>
+<tr>
+  <td>
+    <p align=center>웹</p>
+  </td>
+  <td>
+    <p align=center>모바일</p>
+  </td>
+</tr>
+</table>
 
 ## 시작점 및 편집점 선택
 
-- 사용자는 영상의 시작점을 선택하여 **“편집이 시작될 곳”**을 선택합니다.
+- 사용자는 영상의 시작점을 선택하여 “**편집이 시작될 곳**”을 선택합니다.
     - 시작점은 사용자가 편집이 시작되기를 원하는 지점으로, 필수 선택입니다.
     - 시작점은 어느 곳이든 가능하나 **모든 영상의 시작점은 동일해야합니다.**
 
-- 사용자는 원할 경우 편집점을 선택하여 **“결과물에 반드시 포함될 장면”**을 선택할 수 있습니다.
+- 사용자는 원할 경우 편집점을 선택하여 “**결과물에 반드시 포함될 장면**”을 선택할 수 있습니다.
     - 편집점은 사용자가 결과물에 반드시 포함되기를 원하는 장면의 지점으로, 옵션입니다.
     - 편집점을 선택할시에 해당 지점의 장면으로부터 2초의 장면은 반드시 결과물에 포함됩니다.
     - 편집점이 자동선택점과 겹칠시에는 편집점이 우선되며, 다른 자동선택점들과 연결되어 장면의 전환이 빠를 수 있습니다.
@@ -120,6 +156,8 @@ Deployed website | [Web Repository](https://github.com/KrossCutting/KrossCutting
 다운로드 버튼 클릭시 영상이 다운로드 됩니다.
 - 앱의 경우 편집이 완료되면 홈화면으로 이동하며, 다운로드 버튼이 활성화됩니다. (색상 분홍색 변경)
 해당 버튼 클릭시 갤러리에 자동으로 영상이 저장됩니다.
+
+</br>
 
 # **🤔 Challenges**
 
@@ -133,6 +171,8 @@ Deployed website | [Web Repository](https://github.com/KrossCutting/KrossCutting
 
 krosscutting이 제공하는 영상이 자엽스럽게 이어지지 않거나 중복해서 나오는 등 편집이 제대로 이어지지 않는다면 서비스에 대한 실용성이 떨어지기 때문에 영상 시작점을 맞추는 것은 매우 중요했습니다.
 
+</br>
+
 ### 1-1. 프레임의 이해: 영상의 시작점을 왜 ms 단위까지 맞춰줘야할까?
 
 오디오 정밀 분석 방법에 앞서 사람이 어떻게 시각적으로 움직임을 인식하는 지 간단히 설명하고 넘어가고자 합니다.
@@ -141,7 +181,7 @@ krosscutting이 제공하는 영상이 자엽스럽게 이어지지 않거나 �
 혹시 영화는 24fps로 촬영된다는 말을 들어보신적이 있으신가요?
 
 > FPS는 frame per second를 의미합니다.
-> 
+
 영화는 1초에 24장의 사진을 촬영하고 이를 연속적으로 보여줌으로써 마치 영상 속 인물이 움직이는 것처럼 보이게 합니다. 실제로는 사진에 불과한데 말이죠.
 
 그럼 도대체 어떻게 사진으로 움직임을 보여줄 수 있었던 걸까요?
@@ -159,6 +199,8 @@ Krosscutting은 영상을 편집 기준을 **30FPS**로 지정했습니다. 즉,
 보통 유튜브 영상의 FPS가 60인 것을 감안하면 30FPS는 기회비용이 적지 않은 프레임 속도입니다. 그렇기 때문에 영상 시작점을 정확하게 잡는 것이 중요할 수 밖에 없습니다.
 
 그럼 이제 영상 시작점 어떻게 맞출 수 있었는지 설명드리겠습니다.
+
+</br>
 
 ### 1-2. 오디오 정밀분석: 어떻게 ms 단위의 차이를 조정할 수 있을까?
 
@@ -186,15 +228,17 @@ Krosscutting은 이 부분을 자바스크립트가 아닌 파이썬으로 구�
 
 동적 시간 와핑(DTW)과 푸리에 변환을 구현하는 과정에서, 파이썬을 선택한 주된 이유는 자바스크립트에서 사용할 수 있는 라이브러리와 관련 정보의 부족 그리고 제한된 시간때문이었습니다.
 
-자바스크립트는 주로 웹 개발에 초점을 맞추고 있으며, 특히 오디오 처리나 고급 수학적 알고리즘을 구현하기 위한 라이브러리나 자료가 파이썬에 비해 상대적으로 제한적입니다. 반면, 파이썬은 과학 계산과 데이터 분석 분야에서 광범위하게 사용되며, 푸리에 변환과 같은 복잡한 수학적 연산을 수행할 수 있는 NumPy와  같은 강력한 라이브러리를 제공합니다. 또한, DTW를 구현할 때 필요한 알고리즘과 관련된 자료와 커뮤니티 지원도 파이썬에서 더욱 풍부하게 찾아볼 수 있습니다. 
+자바스크립트는 주로 웹 개발에 초점을 맞추고 있으며, 특히 오디오 처리나 고급 수학적 알고리즘을 구현하기 위한 라이브러리나 자료가 파이썬에 비해 상대적으로 제한적입니다. 반면, 파이썬은 과학 계산과 데이터 분석 분야에서 광범위하게 사용되며, 푸리에 변환과 같은 복잡한 수학적 연산을 수행할 수 있는 NumPy와  같은 강력한 라이브러리를 제공합니다. 또한, DTW를 구현할 때 필요한 알고리즘과 관련된 자료와 커뮤니티 지원도 파이썬에서 더욱 풍부하게 찾아볼 수 있습니다.
 
 마지막으로 5주라는 제한된 시간내에 핵심 기능을 모두 구현해야했기에 자바스크립트가 아닌 파이썬으로 구현하는 것을 택했습니다.
+
+</br>
 
 ## 2. 영상의 교차편집은 언제 어떻게 일어날까?
 
 오디오 정밀분석 이후 추출된 프레임에 대해서 **편집 구간**을 추출했어야 했습니다.
 
-편집구간은 **편집 지점**과 해당 편집 지점으로부터 편집된 영상의 **지속 시간**의 프로세스를 거쳐서 나온, “**영상의 전환이 일어날 구간”**을 의미합니다.
+편집구간은 **편집 지점**과 해당 편집 지점으로부터 편집된 영상의 **지속 시간**의 프로세스를 거쳐서 나온, “**영상의 전환이 일어날 구간**”을 의미합니다.
 
 ### 2-1. 편집 지점의 기준 선정
 
@@ -214,6 +258,8 @@ Krosscutting은 이 부분을 자바스크립트가 아닌 파이썬으로 구�
 따라서 한 아이돌의 동일한 노래에 대한 각각 다른 무대영상들에서 동일한 시점에 한명의 얼굴이 있다면, 그건 같은 사람일 것이라는 추론이었습니다.
 
 이러한 추론을 기반으로 편집 지점을 추출하는 기준은 **화면의 중앙부분에서 한 명의 얼굴이 존재하고, 해당 얼굴이 1초 이상 영상에 지속될 경우, 즉 소위 말하는 원샷 지점**을 기준으로 삼았습니다.
+
+</br>
 
 ### 2-2. 편집 지점의 추출 - 색상의 이해
 
@@ -280,6 +326,8 @@ Composite메서드는 두 이미지의 합성하는 메서드입니다. 이때 b
   <img width="300" height="300" alt="center image" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/4c18511c-db05-4de3-af0c-2c977ee7bf29">
 </p>
 
+</br>
+
 ### 2-3. 편집 지점의 추출 - 얼굴 분석과 임계점 설정
 
 이후 움직임 영역이 추출된 이미지를 버퍼로 변환하여 배열에 담은 후, 전체 영역에서 검정색 영역이 차지하는 비율을 도출하여 편집 지점을 추출하였습니다. 그 결과 원샷 지점의 경우 다른 이미지에 비해 높은 비율을 가지는 것을 확인할 수 있었습니다.
@@ -303,9 +351,11 @@ Composite메서드는 두 이미지의 합성하는 메서드입니다. 이때 b
   <img width="600" alt="tensorflow diagram" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/9e44ada3-e238-4324-962d-4240760191c7">
 </p>
 
+</br>
+
 ### 2-4. 편집의 지속시간 계산
 
-메인영상과 서브영상들의 편집 지점 즉, 영상이 전환될 시점들을 추출하고, 이후 작업들을 거쳐 최종적으로 선정된 편집 지점에 대해서 해당 시점으로부터 영상을 몇초간 변경해야할지를 결정해야 했습니다. 
+메인영상과 서브영상들의 편집 지점 즉, 영상이 전환될 시점들을 추출하고, 이후 작업들을 거쳐 최종적으로 선정된 편집 지점에 대해서 해당 시점으로부터 영상을 몇초간 변경해야할지를 결정해야 했습니다.
 
 처음에는 모든 지점에 대해서 3초간 영상을 교체하였습니다. 하지만 모든 지점에 대해 공통으로 3초라는 시간을 적용했을 때, 다른 아이돌 멤버의 얼굴이 포함되어서 원샷 지점에 대한 교체라는 경계가 모호해지거나 다른 아이돌 멤버의 얼굴이 나오자마자 교체되는 등 어색한 편집이 되는 경우가 있었습니다.
 
@@ -315,14 +365,18 @@ Composite메서드는 두 이미지의 합성하는 메서드입니다. 이때 b
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/dbf80058-9235-4740-8f01-c54c5e856ae2">
 </p>
 
+</br>
+
 ## 3. 보다 자연스러운 편집을 위한 리사이징은 어떻게 진행해야할까?
 
 KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만 아니라
-다른 아이돌 교차편집 영상들처럼 각 편집 지점들을 어색하지 않도록 부드럽게 이어주는 효과를 주고 싶었습니다. 
+다른 아이돌 교차편집 영상들처럼 각 편집 지점들을 어색하지 않도록 부드럽게 이어주는 효과를 주고 싶었습니다.
 그 과정에서 저희가 고려한 효과들은 아래와 같습니다.
 
 - 리사이징*re-sizing* 효과 : 편집 지점의 아이돌 얼굴 위치와 크기에 맞게 편집 영상 이미지를 조정합니다.
 - 디졸브*dissolve* 효과 : 프레임 변경 시 프레임 투명도를 조절하는 편집 효과로 선택적으로 부여합니다.
+
+</br>
 
 ### 3-1. 얼굴 좌표 받아오기
 
@@ -346,6 +400,8 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
 즉, 얼굴 영역 전체에 대한 좌표를 알 수 있습니다.
 이제 받아 온 얼굴 좌표를 바탕으로 리사이징 효과를 적용해 보겠습니다.
 
+</br>
+
 ### 3-2. 리사이징 효과
 
 리사이징을 위한 로직은 어떻게 구성할 수 있을까요? 오랜 고민 끝에 도출한 프로세스는 아래와 같습니다.
@@ -355,6 +411,8 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
 <p align="center">
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/f35b7498-ef67-4bf2-878b-32bace273823">
 </p>
+
+</br>
 
 리사이징 프로세스는 다음과 같습니다.
 
@@ -373,7 +431,9 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/f63ead4d-eb99-4e29-b4e9-8b306cf2045e">
 </p>
 
-1. 축소된 이미지를 기존 이미지 크기만큼 비율을 확대하면 얼굴 좌표가 유사해지는 원리를 사용하여
+</br>
+
+2. 축소된 이미지를 기존 이미지 크기만큼 비율을 확대하면 얼굴 좌표가 유사해지는 원리를 사용하여
 줌인(zoom-in)된 이미지를 구현합니다.
 
 <p align="center">
@@ -385,6 +445,8 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
 <p align="center">
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/5c39ef1f-c017-45fe-a3b0-79b42953fc62">
 </p>
+
+</br>
 
 ### 3-3. 프레임 간 디졸브 효과
 
@@ -398,10 +460,14 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
 이렇게 KrossCutting에서는 교차 편집 지점을 자동으로 정해주는 것 뿐만 아니라,
 실제 교차 편집과 유사하게 리사이징 및 디졸브 기능을 추가함으로써 훨씬 자연스러운 교차 편집 기능을 제공할 수 있었습니다.
 
+</br>
+
 ## 4. App은 Web과 뭐가 다를까?
 
 KrossCutting 은 웹 뿐만 아니라 앱으로도 구현되었습니다.
 유저가 파일을 업로드하는 방식을 지원하고 있으므로, 모바일 환경의 유저들이 보다 편리하게 사용할 수 있습니다.
+
+</br>
 
 ### 4-1. Flutter vs ReactNative
 
@@ -427,6 +493,8 @@ KrossCutting 앱은 짧은 기간내에 빠르게 앱을 구축하고,
     - 개발환경에서 JIT 컴파일 방식으로 hot-reload 기능 지원
     - 배포환경에서 AOT 컴파일 방식으로 고 성능 퍼포먼스 가능
 
+</br>
+
 ### 4-2. App 환경과 Web 환경의 차이 1 - 사용자 보호방식
 
 웹 환경에서는 CORS(Cross-Origin Resource Shring)와 동일 출처 정책을 통해 클라이언트를 보호하고 있으나
@@ -435,10 +503,10 @@ KrossCutting 앱은 짧은 기간내에 빠르게 앱을 구축하고,
 KrossCutting 앱은 편집하기를 원하는 영상을 고른 후 서버에 전송하고,
 교차 편집 완료된 영상을 사용자의 갤러리에 저장하는 과정을 거칩니다.
 
-따라서, 반드시 갤러리 접근 및 파일 저장 권한이 필수적이였습니다.
+따라서, 갤러리 접근 및 파일 저장 권한이 필수적이었습니다.
 이를 위해 Flutter 위젯 중에서 permission_handler 를 활용하여 제어를 시도하였습니다.
 
-iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일을 수정하여 접근을 허가해주어야 합니다. 
+iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일을 수정하여 접근을 허가해주어야 합니다.
 
 - `Podfile`
     - Xcode 프로젝트의 종속성에 대한 명세
@@ -480,6 +548,8 @@ iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일�
 위와 같은 권한설정을 통해 관련 위젯에서 사용자로부터 접근 허가를 받을 수 있도록 모달을 띄우고,
 사용자의 권한 설정에 따라 갤러리를 열거나 제한할 수 있습니다.
 
+</br>
+
 ### 4-3. App 환경과 Web 환경의 차이 2 - UI 조작 방식
 
 앱은 웹과 다른 UI 조작 방식을 갖고 있으므로 이벤트 핸들러에 차이를 보입니다.
@@ -510,6 +580,8 @@ iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일�
 따라서 단순히 사용법을 설명한 후 홈으로 돌아가는 코치마크 위젯의 경우,
 라우터 기록을 지워주는 `popUntil`메서드를 사용함으로써 보다 사용자 친화적이고 설득력 높은 앱 UI를 구성할 수 있습니다.
 
+</br>
+
 # 📆 Schedule
 
 - 1주차
@@ -535,15 +607,21 @@ iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일�
     - IOS 권한 설정 및 갤러리 위젯 구현
     - 세로영상 편집 전체 로직 구현
 
+</br>
+
 # 🤼‍♂️ Memoir
 
 ### **한민지**
 
-좋아하는 아이돌의 영상을 자동으로 편집하는 기능이 있으면 좋겠다는 사심에서 시작한 프로젝트 주제였습니다. 싱글 스레드에서 raw data를 다루며 만난 다양한 에러와 챌린지들 외에도, 기능을 구현하는 과정에서 이 기능을 구현하기 위해 어떻게 로직을 구현할 것인지, 즉 접근 방법에 대해서도 처음부터 하나하나 생각하고 고민하며, 증명하고 구현해내는 과정에서 만난 다양한 챌린지까지 정말 다양한 경험을 할 수 있었던 프로젝트 였습니다. 그 과정에서 개발 스킬 외에도, 무언가를 생각하고 고민하는 과정에 대한 중요성을 다시 한번 느낄 수 있었습니다. 뿐만 아니라 팀으로 프로젝트를 진행하며 팀원들 덕분에 힘든 과정이었음에도 기간 내에 잘 마무리 지을 수 있었다고 생각합니다. 개발 과정에서 어려웠을 때 뿐만 아니라 그 과정에서 정신적으로 힘들 때에도, 서로 믿고 의지하며 나아갈 수 있도록 도와준 TJ95 팀원들께 감사하다는 말씀 전합니다.
+좋아하는 아이돌의 영상을 자동으로 편집하는 기능이 있으면 좋겠다는 사심에서 시작한 프로젝트 주제였습니다. 싱글 스레드에서 raw data를 다루며 만난 다양한 에러와 챌린지들 외에도, 기능을 구현하는 과정에서 이 기능을 구현하기 위해 어떻게 로직을 구현할 것인지 처음부터 하나하나 생각하고 고민하여 구현해내는 과정에서 만난 챌린지까지. 정말 다양한 경험을 할 수 있었던 프로젝트 였습니다. 그 과정에서 개발 스킬 외에도, 무언가를 생각하고 고민하는 과정에 대한 중요성을 다시 한번 느낄 수 있었습니다. 뿐만 아니라 팀으로 프로젝트를 진행하며 팀원들 덕분에 힘든 과정이었음에도 기간 내에 잘 마무리 지을 수 있었다고 생각합니다. 개발 과정에서 어려웠을 때 뿐만 아니라 그 과정에서 정신적으로 힘들 때에도, 서로 믿고 의지하며 나아갈 수 있도록 도와준 TJ95 팀원들께 감사하다는 말씀 전합니다.
+
+</br>
 
 ### **채민석**
 
 프로젝트 기획부터 POC를 마칠때까지도 결과물 퀼리티에 대한 확신이 없었습니다. 그러나, 끊임없는 최적화와 팀원들의 노력덕분에 만족할만한 서비스를 제작할 수 있었습니다. 오디오와 이미지같은 로우 데이터를 자바스크립트로 다루는 것이 얼마나 불편한 것인지도 배울 수 있었습니다. 자바스크립트가 매우 다재다능하지만 깊이가 부족하다는 것도요. 작업적인 소통 스킬이 부족해서 팀원들에게 폐를 많이 끼쳤지만 항상 응원해준 민지님 그리고 수진님에게 감사합니다.
+
+</br>
 
 ### **이수진**
 
