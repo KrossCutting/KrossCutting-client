@@ -1,7 +1,7 @@
 # KrossCutting
 
 <p align="center">
-<img alt="play game" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/e5d7bd39-2e1b-44b7-8767-4f03b4541a95"/>
+<img width="500" alt="play game" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/e5d7bd39-2e1b-44b7-8767-4f03b4541a95"/>
 </p>
 
 KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 수 있는 웹/앱 서비스 입니다. 무대영상과 직캠영상을 모두 지원하며, 영상만 넣으면 자동으로 교차 편집된 영상을 다운로드 받을 수 있습니다.
