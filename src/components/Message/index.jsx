@@ -38,7 +38,10 @@ function Message({ messageType, handleProceedClick, handleSelectionClick }) {
 
   return (
     <Modal>
-      <main className="overflow-hidden modal-wrapper m-w-500">
+      <main
+        className="overflow-hidden modal-wrapper m-w-500"
+        data-testid="Message"
+      >
         <section className="space-y-20 text-white">
           <div className="text-lg font-bold md:text-25">{HEADER}</div>
           <div className="space-y-5">
