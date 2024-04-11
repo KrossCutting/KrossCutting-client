@@ -4,6 +4,7 @@ function SampleVideo() {
       <div className="min-w-400 max-w-400 max-h-225 min-h-225 w-[48vw] h-[27vw] ml-7">
         <video
           className="relative w-full h-full rounded -z-1"
+          aria-label="sample video"
           autoPlay
           muted
           loop
