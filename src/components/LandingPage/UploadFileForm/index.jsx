@@ -69,7 +69,6 @@ function UploadFileForm({ handleIsLoading }) {
 
   return (
     <form
-      data-testid="uploadForm"
       className="flex flex-col items-center justify-center w-full h-auto"
       onSubmit={handleVideoSubmit}
     >
@@ -85,7 +84,6 @@ function UploadFileForm({ handleIsLoading }) {
         <input
           id="mainVideo"
           name="mainVideoFile"
-          aria-label="Upload Main Video"
           type="file"
           accept="video/mp4"
           className="hidden"
@@ -105,7 +103,6 @@ function UploadFileForm({ handleIsLoading }) {
         <input
           id="subOneVideo"
           name="subOneVideoFile"
-          aria-label="Upload Sub One Video"
           type="file"
           accept="video/mp4"
           className="hidden"
@@ -124,7 +121,6 @@ function UploadFileForm({ handleIsLoading }) {
             <input
               id="subTwoVideo"
               name="subTwoVideoFile"
-              aria-label="Upload Sub Two Video"
               type="file"
               accept="video/mp4"
               className="hidden"
@@ -136,14 +132,12 @@ function UploadFileForm({ handleIsLoading }) {
       <div className="flex items-center justify-center h-auto my-10 cursor-pointer">
         {isClicked ? (
           <IoIosCloseCircle
-            aria-label="Remove last upload input"
             size={27}
             onClick={handleCountButtonClick}
             className="hover:text-purple button-animation active:scale-90"
           />
         ) : (
           <IoIosAddCircle
-            aria-label="Add upload input"
             size={27}
             onClick={handleCountButtonClick}
             className="hover:text-purple button-animation active:scale-90"
