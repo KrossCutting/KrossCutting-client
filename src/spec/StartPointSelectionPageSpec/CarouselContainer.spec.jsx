@@ -1,15 +1,34 @@
-import { describe, it, beforeEach, afterEach } from "vitest";
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import { describe, it, beforeEach, afterEach, vi } from "vitest";
+import { render, fireEvent, screen, cleanup } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
-import CarouselContainer from "../../src/components/StartPointSelectionPage/CarouselContainer";
+import CarouselContainer from "../../components/StartPointSelectionPage/CarouselContainer";
 
-import { useAwsAudioStore } from "../../src/store";
-import { useAwsVideoStore } from "../../src/store";
+import { useAwsAudioStore } from "../../store";
+import { useAwsVideoStore } from "../../store";
+
+vi.mock("wavesurfer.js", () => ({
+  __esModule: true,
+  default: {
+    create: vi.fn().mockReturnValue({
+      play: vi.fn(),
+      pause: vi.fn(),
+      seekTo: vi.fn(),
+      destroy: vi.fn(),
+    }),
+  },
+}));
 
 describe("[StartPointSelectionPage] CarouselContainer TEST", () => {
   beforeEach(() => {
-    const initalAudioState = useAwsAudioStore.getSate();
+    const { clearAudioUrls } = useAwsAudioStore.getState();
+    const { clearVideoUrls } = useAwsVideoStore.getState();
+
+    clearAudioUrls();
+    clearVideoUrls();
+    vi.clearAllMocks();
+
+    const initalAudioState = useAwsAudioStore.getState();
     const initalVideoState = useAwsVideoStore.getState();
 
     useAwsAudioStore.setState({
@@ -32,7 +51,7 @@ describe("[StartPointSelectionPage] CarouselContainer TEST", () => {
         subOneVideoUrl:
           "https://krosscutting.s3.ap-northeast-2.amazonaws.com/sub-one-contents/videos/sub-one-video.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAZQ3DQ7T4MBWCKQRP%2F20240408%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240408T083259Z&X-Amz-Expires=60000&X-Amz-Signature=384f6192dcd07ab3b9fe1a5ebc4cf4a2273a9d0819de280d5baade64ca0b1e18&X-Amz-SignedHeaders=host&x-id=GetObject",
         subTwoVideoUrl:
-          "https://krosscutting.s3.ap-northeast-2.amazonaws.com/sub-two-contents/videos/sub-two-video.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAZQ3DQ7T4MBWCKQRP%2F20240408%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240408T083259Z&X-Amz-Expires=60000&X-Amz-Signature=867cb6dc12bda6e18e46944b689f4c8239f5e26ceff3af5b6497c2fca57b7e34&X-Amz-SignedHeaders=host&x-id=GetObject"
+          "https://krosscutting.s3.ap-northeast-2.amazonaws.com/sub-two-contents/videos/sub-two-video.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAZQ3DQ7T4MBWCKQRP%2F20240408%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240408T083259Z&X-Amz-Expires=60000&X-Amz-Signature=867cb6dc12bda6e18e46944b689f4c8239f5e26ceff3af5b6497c2fca57b7e34&X-Amz-SignedHeaders=host&x-id=GetObject",
       },
     });
 
@@ -44,15 +63,38 @@ describe("[StartPointSelectionPage] CarouselContainer TEST", () => {
   });
 
   afterEach(() => {
-    const { clearAudioUrls } = useAwsAudioStore.getSate();
-    const { clearVideoUrls } = useAwsVideoStore.getSate();
-
-    clearAudioUrls();
-    clearVideoUrls();
-
     cleanup();
-  })
+  });
 
-  it("1. ", () => { });
-  it("2. ", () => { });
+  it("1. 첫 렌더링 시 메인 비디오가 렌더링 되어야 합니다.", async () => {
+    const mainVideo = screen.getByText("main video");
+
+    expect(mainVideo).toBeInTheDocument();
+  });
+
+  it("2. 오른쪽 버튼을 누르면 캐로우셀이 이동하여 서브 비디오를 렌더링 합니다.", () => {
+    const rightButton = screen.queryByTestId("right");
+
+    fireEvent.click(rightButton);
+
+    const subVideo = screen.getByText("sub video");
+
+    expect(subVideo).toBeInTheDocument();
+  });
+
+  it("3. 오른쪽 버튼을 눌렀다가, 왼쪽 버튼을 누르면 다시 메인 비디오를 렌더링 합니다.", () => {
+    const rightButton = screen.queryByTestId("right");
+    const leftButton = screen.queryByTestId("left");
+    const mainVideo = screen.getByText("main video");
+
+    fireEvent.click(rightButton);
+
+    const subVideo = screen.getByText("sub video");
+
+    expect(subVideo).toBeInTheDocument();
+
+    fireEvent.click(leftButton);
+
+    expect(mainVideo).toBeInTheDocument();
+  });
 });

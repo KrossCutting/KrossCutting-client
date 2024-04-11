@@ -30,6 +30,7 @@ function CarouselContainer() {
           size={CAROUSEL_ICON_SIZE}
           className={`fill-white ${currentIndex === 0 ? "invisible" : null} cursor-pointer`}
           onClick={handleLeftClick}
+          data-testid="left"
         />
         <SelectionContainer
           videoUrlList={videoUrlList}
@@ -40,6 +41,7 @@ function CarouselContainer() {
           size={CAROUSEL_ICON_SIZE}
           className={`fill-white ${currentIndex === videoUrlList.length - 1 ? "invisible" : null} cursor-pointer`}
           onClick={handleRightClick}
+          data-testid="right"
         />
       </section>
       <Outlet />
