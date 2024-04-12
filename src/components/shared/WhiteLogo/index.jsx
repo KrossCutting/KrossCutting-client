@@ -1,6 +1,6 @@
 function WhiteLogo() {
   return (
-    <div className="flex items-center justify-center">
+    <div data-testid="white-logo" className="flex items-center justify-center">
       <img
         src="/assets/krossCutting_logo_white.png"
         alt="logo"

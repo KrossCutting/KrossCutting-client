@@ -1,6 +1,7 @@
 function VideoBackground() {
   return (
     <video
+      data-testid="video-background"
       autoPlay
       muted
       loop
