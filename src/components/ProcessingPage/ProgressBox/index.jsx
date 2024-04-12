@@ -51,7 +51,10 @@ function ProgressBox({ progressStatus }) {
     );
 
   return (
-    <div className="bg-[rgba(255,255,255,0.3)] w-[60vw] h-auto min-h-400 min-w-400 rounded-3xl flex justify-center items-center">
+    <div
+      data-testid="progress-box"
+      className="bg-[rgba(255,255,255,0.3)] w-[60vw] h-auto min-h-400 min-w-400 rounded-3xl flex justify-center items-center"
+    >
       <div className="text-sm text-white md:text-lg lg:text-30">
         {progressContent}
       </div>

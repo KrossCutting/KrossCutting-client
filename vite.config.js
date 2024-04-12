@@ -9,6 +9,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text"],
       reportsDirectory: "./src/spec/coverage",
+      exclude: ["**/*config*.*"],
     },
     globals: true,
     environment: "jsdom",

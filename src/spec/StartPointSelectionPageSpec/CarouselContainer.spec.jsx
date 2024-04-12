@@ -28,11 +28,11 @@ describe("[StartPointSelectionPage] CarouselContainer TEST", () => {
     clearVideoUrls();
     vi.clearAllMocks();
 
-    const initalAudioState = useAwsAudioStore.getState();
-    const initalVideoState = useAwsVideoStore.getState();
+    const initialAudioState = useAwsAudioStore.getState();
+    const initialVideoState = useAwsVideoStore.getState();
 
     useAwsAudioStore.setState({
-      ...initalAudioState,
+      ...initialAudioState,
       audioUrls: {
         mainAudioUrl:
           "https://krosscutting.s3.ap-northeast-2.amazonaws.com/main-contents/audios/main-audio.wav?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAZQ3DQ7T4MBWCKQRP%2F20240408%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240408T083259Z&X-Amz-Expires=60000&X-Amz-Signature=a890474225d08fd6d36a0af7a146ac5c73dadff76d0a88e366b1bc1597c0c435&X-Amz-SignedHeaders=host&x-id=GetObject",
@@ -44,7 +44,7 @@ describe("[StartPointSelectionPage] CarouselContainer TEST", () => {
     });
 
     useAwsVideoStore.setState({
-      ...initalVideoState,
+      ...initialVideoState,
       videoUrls: {
         mainVideoUrl:
           "https://krosscutting.s3.ap-northeast-2.amazonaws.com/main-contents/videos/main-video.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAZQ3DQ7T4MBWCKQRP%2F20240408%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240408T083259Z&X-Amz-Expires=60000&X-Amz-Signature=660df6176839ff701435c6ca043f27278ec79b04bf28025edb84c9f1621ec8ef&X-Amz-SignedHeaders=host&x-id=GetObject",

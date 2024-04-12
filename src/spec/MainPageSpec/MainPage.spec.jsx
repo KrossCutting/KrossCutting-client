@@ -21,7 +21,7 @@ vi.mock("axios", () => ({
   },
 }));
 
-describe.only("Landing Page", () => {
+describe("Landing Page", () => {
   it("1. 랜딩페이지 내 모든 컴포넌트가 렌더링 되어야 합니다.", () => {
     render(
       <MemoryRouter>
