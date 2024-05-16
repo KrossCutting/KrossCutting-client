@@ -115,47 +115,49 @@ KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 �
 
 # 🕹️ Features
 
-## 영상 업로드 (web &  app)
+## 영상 업로드 (web & app)
 
 - 웹의 경우 Upload Video 버튼을 눌러 가로영상을 업로드 할 수 있습니다.
 - 모바일의 경우 원하는 비율의 영상을 버튼을 클릭하면 사용자의 갤러리로 이동합니다.
 
-    <table align=center>
-<tr>
-  <td>
-	  <img width="300" alt="explain saturation" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/8b29b188-ed04-461c-b889-2e64739c3cd8">
-  </td>
-  <td>
-	  <img height="300" alt="explain brightness" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/751d3066-76e6-47dd-8b2c-02e52e4baee3">
-  </td>
-</tr>
-<tr>
-  <td>
-    <p align=center>웹</p>
-  </td>
-  <td>
-    <p align=center>모바일</p>
-  </td>
-</tr>
-</table>
+      <table align=center>
+
+  <tr>
+    <td>
+  	  <img width="300" alt="explain saturation" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/8b29b188-ed04-461c-b889-2e64739c3cd8">
+    </td>
+    <td>
+  	  <img height="300" alt="explain brightness" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/751d3066-76e6-47dd-8b2c-02e52e4baee3">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p align=center>웹</p>
+    </td>
+    <td>
+      <p align=center>모바일</p>
+    </td>
+  </tr>
+  </table>
 
 ## 시작점 및 편집점 선택
 
 - 사용자는 영상의 시작점을 선택하여 “**편집이 시작될 곳**”을 선택합니다.
-    - 시작점은 사용자가 편집이 시작되기를 원하는 지점으로, 필수 선택입니다.
-    - 시작점은 어느 곳이든 가능하나 **모든 영상의 시작점은 동일해야합니다.**
+
+  - 시작점은 사용자가 편집이 시작되기를 원하는 지점으로, 필수 선택입니다.
+  - 시작점은 어느 곳이든 가능하나 **모든 영상의 시작점은 동일해야합니다.**
 
 - 사용자는 원할 경우 편집점을 선택하여 “**결과물에 반드시 포함될 장면**”을 선택할 수 있습니다.
-    - 편집점은 사용자가 결과물에 반드시 포함되기를 원하는 장면의 지점으로, 옵션입니다.
-    - 편집점을 선택할시에 해당 지점의 장면으로부터 2초의 장면은 반드시 결과물에 포함됩니다.
-    - 편집점이 자동선택점과 겹칠시에는 편집점이 우선되며, 다른 자동선택점들과 연결되어 장면의 전환이 빠를 수 있습니다.
+  - 편집점은 사용자가 결과물에 반드시 포함되기를 원하는 장면의 지점으로, 옵션입니다.
+  - 편집점을 선택할시에 해당 지점의 장면으로부터 2초의 장면은 반드시 결과물에 포함됩니다.
+  - 편집점이 자동선택점과 겹칠시에는 편집점이 우선되며, 다른 자동선택점들과 연결되어 장면의 전환이 빠를 수 있습니다.
 
 ## 교차편집 영상 다운로드
 
 - 웹의 경우 편집이 완료되면 화면에 다운로드 버튼이 나타납니다.
-다운로드 버튼 클릭시 영상이 다운로드 됩니다.
+  다운로드 버튼 클릭시 영상이 다운로드 됩니다.
 - 앱의 경우 편집이 완료되면 홈화면으로 이동하며, 다운로드 버튼이 활성화됩니다. (색상 분홍색 변경)
-해당 버튼 클릭시 갤러리에 자동으로 영상이 저장됩니다.
+  해당 버튼 클릭시 갤러리에 자동으로 영상이 저장됩니다.
 
 </br>
 
@@ -165,9 +167,9 @@ KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 �
 
 무대 영상을 교차 편집하는 데 있어 가장 걱정했던 부분 중 하나는 “영상의 시작점을 어느정도까지 맞출 수 있을까” 였습니다.
 
-왜냐하면  유저가 제공하는 영상들이 모두 같은 시점에 시작한다고 보장할 수 없기 때문이었습니다. **유저가 제공한** A 영상에서는 음악 시작전 1초가 포함되어 있을 수 있고 B 영상에서는 음악이 바로 시작될 수도 있습니다.
+왜냐하면 유저가 제공하는 영상들이 모두 같은 시점에 시작한다고 보장할 수 없기 때문이었습니다. **유저가 제공한** A 영상에서는 음악 시작전 1초가 포함되어 있을 수 있고 B 영상에서는 음악이 바로 시작될 수도 있습니다.
 
-**저희 서비스는 영상의 편집을** 프레임 단위로 분석하고, 이 프레임은  시간을 기준(초단위)으로 추출되기 때문에 ****시작 시간이 일치하지 않는다면 1번 영상에서 A 동작을 하고 있을 때 2번 영상에서 A 동작이 아닌 B 동작을 하고 있을 것입니다.
+**저희 서비스는 영상의 편집을** 프레임 단위로 분석하고, 이 프레임은 시간을 기준(초단위)으로 추출되기 때문에 시작 시간이 일치하지 않는다면 1번 영상에서 A 동작을 하고 있을 때 2번 영상에서 A 동작이 아닌 B 동작을 하고 있을 것입니다.
 
 krosscutting이 제공하는 영상이 자엽스럽게 이어지지 않거나 중복해서 나오는 등 편집이 제대로 이어지지 않는다면 서비스에 대한 실용성이 떨어지기 때문에 영상 시작점을 맞추는 것은 매우 중요했습니다.
 
@@ -228,7 +230,7 @@ Krosscutting은 이 부분을 자바스크립트가 아닌 파이썬으로 구�
 
 동적 시간 와핑(DTW)과 푸리에 변환을 구현하는 과정에서, 파이썬을 선택한 주된 이유는 자바스크립트에서 사용할 수 있는 라이브러리와 관련 정보의 부족 그리고 제한된 시간때문이었습니다.
 
-자바스크립트는 주로 웹 개발에 초점을 맞추고 있으며, 특히 오디오 처리나 고급 수학적 알고리즘을 구현하기 위한 라이브러리나 자료가 파이썬에 비해 상대적으로 제한적입니다. 반면, 파이썬은 과학 계산과 데이터 분석 분야에서 광범위하게 사용되며, 푸리에 변환과 같은 복잡한 수학적 연산을 수행할 수 있는 NumPy와  같은 강력한 라이브러리를 제공합니다. 또한, DTW를 구현할 때 필요한 알고리즘과 관련된 자료와 커뮤니티 지원도 파이썬에서 더욱 풍부하게 찾아볼 수 있습니다.
+자바스크립트는 주로 웹 개발에 초점을 맞추고 있으며, 특히 오디오 처리나 고급 수학적 알고리즘을 구현하기 위한 라이브러리나 자료가 파이썬에 비해 상대적으로 제한적입니다. 반면, 파이썬은 과학 계산과 데이터 분석 분야에서 광범위하게 사용되며, 푸리에 변환과 같은 복잡한 수학적 연산을 수행할 수 있는 NumPy와 같은 강력한 라이브러리를 제공합니다. 또한, DTW를 구현할 때 필요한 알고리즘과 관련된 자료와 커뮤니티 지원도 파이썬에서 더욱 풍부하게 찾아볼 수 있습니다.
 
 마지막으로 5주라는 제한된 시간내에 핵심 기능을 모두 구현해야했기에 자바스크립트가 아닌 파이썬으로 구현하는 것을 택했습니다.
 
@@ -251,9 +253,9 @@ Krosscutting은 이 부분을 자바스크립트가 아닌 파이썬으로 구�
 이러한 영상의 추출은 **휴리스틱 검증**을 기반하여 이루어졌습니다.
 
 > 휴리스틱 검증이란 불충분한 시간이나 정보로 인하여 합리적인 판단을 할 수 없거나,
-체계적이면서 합리적인 판단이 굳이 필요하지 않은 상황에서 사람들이 빠르게 사용할 수 있게 보다 용이하게 구성된 간편추론 입니다. (출처: [wikipedia](https://ko.wikipedia.org/wiki/%ED%9C%B4%EB%A6%AC%EC%8A%A4%ED%8B%B1_%EC%9D%B4%EB%A1%A0))
-> 
-같은 아이돌의 같은 노래에 대한 무대영상의 경우, 동일한 구간은 동일한 멤버가 노래를 부를 것이고 당연히 카메라에 찍히는 사람은 해당 구간의 노래를 부르는 멤버일 것입니다.
+> 체계적이면서 합리적인 판단이 굳이 필요하지 않은 상황에서 사람들이 빠르게 사용할 수 있게 보다 용이하게 구성된 간편추론 입니다. (출처: [wikipedia](https://ko.wikipedia.org/wiki/%ED%9C%B4%EB%A6%AC%EC%8A%A4%ED%8B%B1_%EC%9D%B4%EB%A1%A0))
+>
+> 같은 아이돌의 같은 노래에 대한 무대영상의 경우, 동일한 구간은 동일한 멤버가 노래를 부를 것이고 당연히 카메라에 찍히는 사람은 해당 구간의 노래를 부르는 멤버일 것입니다.
 
 따라서 한 아이돌의 동일한 노래에 대한 각각 다른 무대영상들에서 동일한 시점에 한명의 얼굴이 있다면, 그건 같은 사람일 것이라는 추론이었습니다.
 
@@ -294,8 +296,7 @@ Composite메서드는 두 이미지의 합성하는 메서드입니다. 이때 b
 - 명도가 높으면 흰색에 가까워지고, 명도가 낮으면 검은색에 가까워집니다.
 
 <p align="center">
-  <img width="300" alt="explain saturation" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/c5ee0609-18f7-463f-ab89-6513938f3b11">
-  <img width="300" alt="explain brightness" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/1d6b7bf2-eeb6-4e91-a998-a7683520b3a1">
+  <img width="506" alt="color" src="https://github.com/KrossCutting/KrossCutting-client/assets/133668286/4ad2e5a4-c5e1-4902-9283-b2757a712efd">
 </p>
 
 아이돌 무대영상의 강렬하고 화려한 색상들이 문제였기 때문에, 강렬하고 진한 색상을 최대한 없애기 위해 우선 채도를 최대한 낮췄습니다. 이후 채도가 낮아진 이미지에 명도를 높임으로써 옅어진 색상에 색의 밝기만이 높아져 화려하고 강렬한 색상을 아래와 같이 변경할 수 있었습니다.
@@ -322,8 +323,7 @@ Composite메서드는 두 이미지의 합성하는 메서드입니다. 이때 b
 이미지 색상이 처리된 구간에 대해 다시 중앙을 추출하고, 움직임의 효과적인 분석을 위해 흑백처리한 결과는 아래와 같습니다. 기존에 모든 구간이 검정색 처리되던 것과 달리 얼굴 부분의 움직임이 적은 부분만 검정색으로 변환된 것을 알 수 있습니다.
 
 <p align="center">
-  <img width="300" height="300" alt="blacked image" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/151328ce-fa8c-4204-b704-45365cd33938">
-  <img width="300" height="300" alt="center image" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/4c18511c-db05-4de3-af0c-2c977ee7bf29">
+  <img width="573" alt="face" src="https://github.com/KrossCutting/KrossCutting-client/assets/133668286/046285e0-a593-4593-9d63-82ca542675bf">
 </p>
 
 </br>
@@ -387,13 +387,12 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/839ab433-12da-4a61-8bdd-fa72139781a6">
 </p>
 
-
 해당 모델에서, 얼굴의 좌표를 가져오면 아래와 같은 데이터를 확인할 수 있습니다.
 
-- `topLeft`  얼굴영역의 좌측 상단 좌표
+- `topLeft` 얼굴영역의 좌측 상단 좌표
 - `bottomRight` 얼굴영역의 우측 하단 좌표
 - `landmarks` 6개의 얼굴의 특징점
-    - 왼쪽 귀, 왼쪽 눈, 코, 입술, 오른쪽 눈, 오른쪽 귀 좌표에 대한 정보를 담고 있음
+  - 왼쪽 귀, 왼쪽 눈, 코, 입술, 오른쪽 눈, 오른쪽 귀 좌표에 대한 정보를 담고 있음
 - `probability` 실제 얼굴일 확률
 
 이때 `topLeft` 값과 `bottomRight` 좌표 값을 이어보면 감지하는 얼굴 영역을 사각형 형태의 컨테이너로 확인 가능합니다.
@@ -418,14 +417,14 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
 
 1. 영상 내 얼굴 영역 컨테이너 좌표의 가로/세로의 중심점 좌표를 구합니다.
 2. 얼굴 중심 좌표의 가로축과 세로축의 차이를 기준으로 이미지를 편집합니다.
-이미지 편집 시, 배경이미지가 손실되므로 줌인(zoom-in)형태로 이미지를 편집합니다.
+   이미지 편집 시, 배경이미지가 손실되므로 줌인(zoom-in)형태로 이미지를 편집합니다.
 3. 편집 후 축소된 이미지와 기존 이미지 사이의 비율을 연산합니다.
 4. 기존의 이미지 크기 만큼 가로/세로 비율을 늘려 복구합니다.
 
 좌표를 통해 이미지를 편집하는 과정을 확인해보면 아래와 같습니다.
 
 1. **두 이미지의** 좌표차만큼 `LeftTop` 좌표를 연산하고,
-이를 기준으로 변경된 `width`,`height` 값을 전달하여 축소된 이미지를 생성합니다.
+   이를 기준으로 변경된 `width`,`height` 값을 전달하여 축소된 이미지를 생성합니다.
 
 <p align="center">
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/f63ead4d-eb99-4e29-b4e9-8b306cf2045e">
@@ -434,7 +433,7 @@ KrossCutting 은 편집 지점을 결정하고 단순히 편집하는 것 뿐만
 </br>
 
 2. 축소된 이미지를 기존 이미지 크기만큼 비율을 확대하면 얼굴 좌표가 유사해지는 원리를 사용하여
-줌인(zoom-in)된 이미지를 구현합니다.
+   줌인(zoom-in)된 이미지를 구현합니다.
 
 <p align="center">
   <img width="600" alt="conversion condition" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/8bbcda35-faf2-4270-be99-dae76ed664a1">
@@ -482,16 +481,16 @@ KrossCutting 앱은 짧은 기간내에 빠르게 앱을 구축하고,
 </p>
 
 - React Native
-    - 자바스크립트 javascript 사용
-    - 템플릿 언어로 구성된 컴포넌트Component로 UI 생성
-    - 렌더링 단계에서 Javascript Bridge를 지야 렌더링이 가능
+  - 자바스크립트 javascript 사용
+  - 템플릿 언어로 구성된 컴포넌트Component로 UI 생성
+  - 렌더링 단계에서 Javascript Bridge를 지야 렌더링이 가능
 - Flutter
-    - 다트 dart 사용
-    - dart 코드로만 구성된 위젯Widget으로 UI 생성
-    - 자체 렌더링 엔진을 사용
-    - 최적화 하기 쉽고 통일성 갖춘 UI 위젯들이 미리 준비
-    - 개발환경에서 JIT 컴파일 방식으로 hot-reload 기능 지원
-    - 배포환경에서 AOT 컴파일 방식으로 고 성능 퍼포먼스 가능
+  - 다트 dart 사용
+  - dart 코드로만 구성된 위젯Widget으로 UI 생성
+  - 자체 렌더링 엔진을 사용
+  - 최적화 하기 쉽고 통일성 갖춘 UI 위젯들이 미리 준비
+  - 개발환경에서 JIT 컴파일 방식으로 hot-reload 기능 지원
+  - 배포환경에서 AOT 컴파일 방식으로 고 성능 퍼포먼스 가능
 
 </br>
 
@@ -509,41 +508,42 @@ KrossCutting 앱은 편집하기를 원하는 영상을 고른 후 서버에 전
 iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일을 수정하여 접근을 허가해주어야 합니다.
 
 - `Podfile`
-    - Xcode 프로젝트의 종속성에 대한 명세
-    - Ruby로 작성
-    - `post_install` hook은 Xcode 프로젝트를 변경하거나 원하는 동작을 추가
 
-        ```ruby
-        post_install do |installer|
-          installer.pods_project.targets.each do |target|
-            flutter_additional_ios_build_settings(target)
-            target.build_configurations.each do |config|
-              config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
-                '$(inherited)','PERMISSION_PHOTOS=1',
-              ]
-            end
-          end
+  - Xcode 프로젝트의 종속성에 대한 명세
+  - Ruby로 작성
+  - `post_install` hook은 Xcode 프로젝트를 변경하거나 원하는 동작을 추가
+
+    ```ruby
+    post_install do |installer|
+      installer.pods_project.targets.each do |target|
+        flutter_additional_ios_build_settings(target)
+        target.build_configurations.each do |config|
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
+            '$(inherited)','PERMISSION_PHOTOS=1',
+          ]
         end
-        ```
+      end
+    end
+    ```
 
 - `Info.plist`
-    - 필요한 권한을 확인하고 반드시 `<key>` `<string>` 쌍으로 필요로 하는 권한을 입력하여야 합니다.
-    - `<key>` 필요한 권한 명
-    - `<string>` 해당 권한이 반드시 필요한 이유를 상세히 적어야 하며, 권한 요청 시 사용자에게 보여지는 글
 
-        ```xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-        	<key>NSPhotoLibraryAddUsageDescription</key>
-          <string>This app needs access to the photo library to save videos.</string>
-        	<key>NSPhotoLibraryUsageDescription</key>
-        	<string>this app needs access to the photo library to create videos.</string>
-        </dict>
-        </plist>
-        ```
+  - 필요한 권한을 확인하고 반드시 `<key>` `<string>` 쌍으로 필요로 하는 권한을 입력하여야 합니다.
+  - `<key>` 필요한 권한 명
+  - `<string>` 해당 권한이 반드시 필요한 이유를 상세히 적어야 하며, 권한 요청 시 사용자에게 보여지는 글
 
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    	<key>NSPhotoLibraryAddUsageDescription</key>
+      <string>This app needs access to the photo library to save videos.</string>
+    	<key>NSPhotoLibraryUsageDescription</key>
+    	<string>this app needs access to the photo library to create videos.</string>
+    </dict>
+    </plist>
+    ```
 
 위와 같은 권한설정을 통해 관련 위젯에서 사용자로부터 접근 허가를 받을 수 있도록 모달을 띄우고,
 사용자의 권한 설정에 따라 갤러리를 열거나 제한할 수 있습니다.
@@ -557,11 +557,11 @@ iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일�
 따라서 위젯의 사용목적에 따라, 그리고 문맥에 따라 필요한 메서드를 적절히 활용해야 한다는 점이 웹과 달랐습니다.
 
 - Web
-    - 마우스 클릭을 통해 UI 조작
-    - 라우터 변경 시 단순히 페이지 새로고침
+  - 마우스 클릭을 통해 UI 조작
+  - 라우터 변경 시 단순히 페이지 새로고침
 - App
-    - 손가락과 제스처를 통해 UI 조작
-    - 라우터 변경 시 변경 메서드에 따라 다른 라우터 스택과 화면 전환 효과
+  - 손가락과 제스처를 통해 UI 조작
+  - 라우터 변경 시 변경 메서드에 따라 다른 라우터 스택과 화면 전환 효과
 
 예를 들어, 코치마크 위젯에서 홈으로 돌아갈 때 선택할 수 있는 라우터 이동 메서드를 비교하면 다음과 같습니다.
 
@@ -585,27 +585,28 @@ iOS에 권한설정을 해주기 위해서는 `Podfile`과 `Info.plist` 파일�
 # 📆 Schedule
 
 - 1주차
-    - 아이디어 선정
-    - 기술 스택 결정
-    - Git 작업 플로우 결정
-    - ESLint, Prettier, Husky 설정
-    - KANBAN 작성
-    - 리액트 및 Node.js/Express 환경 세팅
+  - 아이디어 선정
+  - 기술 스택 결정
+  - Git 작업 플로우 결정
+  - ESLint, Prettier, Husky 설정
+  - KANBAN 작성
+  - 리액트 및 Node.js/Express 환경 세팅
 - 2주차
-    - 웹앱 전체 화면 구현
-    - 오디오 정밀분석 로직 구현
-    - 원샷구간(편집지점) 추출 알고리즘 구현
-    - 편집지점 지속시간 추출 알고리즘 구현
-    - 원샷지점(편집지점) 일치율 추출 로직 구현
-    - 프레임 리사이징 알고리즘 구현
-    - 프레임 영상 전환 로직 구현
+
+  - 웹앱 전체 화면 구현
+  - 오디오 정밀분석 로직 구현
+  - 원샷구간(편집지점) 추출 알고리즘 구현
+  - 편집지점 지속시간 추출 알고리즘 구현
+  - 원샷지점(편집지점) 일치율 추출 로직 구현
+  - 프레임 리사이징 알고리즘 구현
+  - 프레임 영상 전환 로직 구현
 
 - 3주차
-    - Flutter 학습 및 KANBAN 작성
-    - 홈화면/코치마크 위젯 구현
-    - 시작점/편집점 위젯 구현
-    - IOS 권한 설정 및 갤러리 위젯 구현
-    - 세로영상 편집 전체 로직 구현
+  - Flutter 학습 및 KANBAN 작성
+  - 홈화면/코치마크 위젯 구현
+  - 시작점/편집점 위젯 구현
+  - IOS 권한 설정 및 갤러리 위젯 구현
+  - 세로영상 편집 전체 로직 구현
 
 </br>
 
