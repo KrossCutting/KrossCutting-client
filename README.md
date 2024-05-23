@@ -120,8 +120,7 @@ KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 �
 - 웹의 경우 Upload Video 버튼을 눌러 가로영상을 업로드 할 수 있습니다.
 - 모바일의 경우 원하는 비율의 영상을 버튼을 클릭하면 사용자의 갤러리로 이동합니다.
 
-      <table align=center>
-
+  <table align=center>
   <tr>
     <td>
   	  <img width="300" alt="explain saturation" src="https://github.com/KrossCutting/KrossCutting-client/assets/131152690/8b29b188-ed04-461c-b889-2e64739c3cd8">
