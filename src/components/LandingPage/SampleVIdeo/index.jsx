@@ -12,8 +12,9 @@ function SampleVideo() {
           <source src="/videos/IVE_sample.mp4" />
         </video>
       </div>
-      <div className="mt-10 py-4 px-8 bg-[rgba(255,255,255,0.1)] rounded-lg text-10">
-        This video is edited using KrossCutting
+      <div className="px-8 py-4 mt-10 text-gray-600 bg-white rounded text-10">
+        This video is edited by&nbsp;
+        <b>KrossCutting</b>
       </div>
     </section>
   );
