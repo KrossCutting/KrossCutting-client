@@ -6,7 +6,15 @@
 
 KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 수 있는 웹/앱 서비스 입니다. 무대영상과 직캠영상을 모두 지원하며, 영상만 넣으면 자동으로 교차 편집된 영상을 다운로드 받을 수 있습니다.
 
-[Deployed website](https://web.krosscutting.com) | [Web Repository](https://github.com/KrossCutting/KrossCutting-client) | [app Repository](https://github.com/KrossCutting/KrossCutting-app) | [Server Repository](https://github.com/KrossCutting/KrossCutting-server)
+<p align="center">
+  <a href="https://web.krosscutting.com">Deployed website</a>
+  <span> | </span>
+  <a href="https://github.com/KrossCutting/KrossCutting-client">Web Repository</a>
+  <span> | </span>
+  <a href="https://github.com/KrossCutting/KrossCutting-app">App Repository</a>
+  <span> | </span>
+  <a href="https://github.com/KrossCutting/KrossCutting-server">Server Repository</a>
+</p>
 
 </br>
 
@@ -119,6 +127,8 @@ KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 �
 
 - 웹의 경우 Upload Video 버튼을 눌러 가로영상을 업로드 할 수 있습니다.
 - 모바일의 경우 원하는 비율의 영상을 버튼을 클릭하면 사용자의 갤러리로 이동합니다.
+
+  - 모바일 시연은 [🔗링크를 클릭](https://youtube.com/shorts/FR3CgS0Oe8U?si=Lkuq29IBC3MAC_NM)하여 확인하실 수 있습니다. (클릭시 유튜브 shorts영상으로 이동합니다.)
 
   <table align=center>
   <tr>
