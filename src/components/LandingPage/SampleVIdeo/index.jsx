@@ -8,8 +8,10 @@ function SampleVideo() {
           autoPlay
           muted
           loop
+          preload="metadata"
+          poster="/assets/IVE_sample_thumbnail.png"
         >
-          <source src="/videos/IVE_sample.mp4" />
+          <source src="/videos/IVE_sample.webm" type="video/webm" />
         </video>
       </div>
       <div className="px-8 py-4 mt-10 text-gray-600 bg-white rounded text-10">
