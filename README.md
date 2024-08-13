@@ -85,7 +85,7 @@ KrossCutting은 누구나 쉽게 KPOP 아이돌 교차편집 영상을 만들 �
 
 - [🔥 Motivation](#-motivation)
 - [🕹️ Features](#%EF%B8%8F-features)
-  - [영상 업로드](#영상-업로드-web---app)
+  - [영상 업로드](#영상-업로드-web--app)
   - [시작점 및 편집점 선택](#시작점-및-편집점-선택)
   - [교차편집 영상 다운로드](#교차편집-영상-다운로드)
 - [🤔 Challenges](#-challenges)
